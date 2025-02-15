@@ -16,8 +16,8 @@ public class Debug03ElementosArray {
             numeros[i] = input.nextInt();
         }
 
-        int maior = 0;
-        int menor = 0;
+        int maior = Integer.MIN_VALUE;
+        int menor = Integer.MAX_VALUE;
         int soma = 0;
         maior = numeros[0];
         menor = numeros[0];
@@ -26,8 +26,9 @@ public class Debug03ElementosArray {
             if (num > maior) {
                 maior = num;
             }
+
             if (num < menor) {
-                maior = num;
+                menor = num;
             }
             soma += num;
         }
