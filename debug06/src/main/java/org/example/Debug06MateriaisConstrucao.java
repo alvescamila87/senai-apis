@@ -1,36 +1,87 @@
 package org.example;
 
-public class Debug05IRPF {
+public class Debug06MateriaisConstrucao {
     public static void main(String[] args) {
 
-        // CONTRIBUINTE 01
-        Ex5 recolhimentoImpostoJoao = new Ex5(
-                "João da Silva",
-                " 123.456.789-00",
-                "PR",
-                35_001
+        //MATERIAL 01
+        Ex6 cimento = new Ex6(
+                "Cimento",
+                " Saco de cimento de 50kg para uso geral na construção.",
+                45.00,
+                50.00,
+                500
+                );
+
+        System.out.printf("""
+                ----------- MATERIAL CONSTRUÇÃO -----------
+                Nome: %s,
+                Descrição: %s,
+                Preço: R$ %.2f,
+                Peso: %s,
+                Estoque: %s,
+                -------------------------------------------
+                """,
+                cimento.getNome(),
+                cimento.getDescricao(),
+                cimento.getPreco(),
+                cimento.getPeso(),
+                cimento.getEstoque()
         );
 
-
-        //CÁLCULO DO IMPOSTO A PAGAR
-        recolhimentoImpostoJoao.calcularImposto();
-        //System.out.println(valor);
-
-        //DADOS DO CONTRIBUINTE
+        //Adicionar ao estoque
+        cimento.adicionarEstoque(50);
+        cimento.adicionarEstoque();
         System.out.printf("""
-        --------------- DADOS DO CONTRIBUINTE  -------------
-                        Nome: %s",
-                        CPF: %s",
-                        UF: %s",
-                        Renda anual R$: %.2f
-                        Imposto a pagar R$: %.2f
-        ----------------------------------------------------              
-                        """,
-                recolhimentoImpostoJoao.getNome(),
-                recolhimentoImpostoJoao.getCpf(),
-                recolhimentoImpostoJoao.getUf(),
-                recolhimentoImpostoJoao.getRendaAnual(),
-                recolhimentoImpostoJoao.calcularImposto()
+                ----------- MATERIAL CONSTRUÇÃO -----------
+                Nome: %s,
+                Descrição: %s,
+                Preço: R$ %.2f,
+                Peso: %s,
+                Estoque: %s,
+                -------------------------------------------
+                """,
+                cimento.getNome(),
+                cimento.getDescricao(),
+                cimento.getPreco(),
+                cimento.getPeso(),
+                cimento.getEstoque()
+        );
+
+        //Venda do produto ao estoque
+        cimento.venderProduto(50);
+        //cimento.venderProduto(502);
+        System.out.printf("""
+                ----------- MATERIAL CONSTRUÇÃO -----------
+                Nome: %s,
+                Descrição: %s,
+                Preço: R$ %.2f,
+                Peso: %s,
+                Estoque: %s,
+                -------------------------------------------
+                """,
+                cimento.getNome(),
+                cimento.getDescricao(),
+                cimento.getPreco(),
+                cimento.getPeso(),
+                cimento.getEstoque()
+        );
+
+        //Promoção do produto ao estoque
+        cimento.aplicarPromocao(50);
+        System.out.printf("""
+                ----------- MATERIAL CONSTRUÇÃO -----------
+                Nome: %s,
+                Descrição: %s,
+                Preço: R$ %.2f,
+                Peso: %s,
+                Estoque: %s,
+                -------------------------------------------
+                """,
+                cimento.getNome(),
+                cimento.getDescricao(),
+                cimento.getPreco(),
+                cimento.getPeso(),
+                cimento.getEstoque()
         );
     }
 }
