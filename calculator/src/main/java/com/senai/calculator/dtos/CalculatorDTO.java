@@ -1,7 +1,11 @@
 package com.senai.calculator.dtos;
 
-import lombok.Data;
+import lombok.*;
 
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 public class CalculatorDTO {
 

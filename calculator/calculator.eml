@@ -99,5 +99,6 @@
 		<level name="Maven: org.springframework:spring-jcl:6.2.2" value="project"/>
 		<level name="Maven: org.springframework:spring-test:6.2.2" value="project"/>
 		<level name="Maven: org.xmlunit:xmlunit-core:2.10.0" value="project"/>
+		<level name="Maven: org.projectlombok:lombok:1.18.36" value="project"/>
 	</levels>
 </component>
