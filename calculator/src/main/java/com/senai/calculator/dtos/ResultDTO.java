@@ -1,8 +1,11 @@
 package com.senai.calculator.dtos;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 public class ResultDTO {
 
     private Integer numero1;

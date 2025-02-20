@@ -2,7 +2,6 @@ package com.senai.calculator.controllers;
 
 import com.senai.calculator.dtos.CalculatorDTO;
 import com.senai.calculator.dtos.ResultDTO;
-import com.senai.calculator.services.CalculatorService;
 import com.senai.calculator.services.CalculatorService2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
