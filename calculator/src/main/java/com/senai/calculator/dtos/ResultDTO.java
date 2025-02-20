@@ -1,24 +1,13 @@
 package com.senai.calculator.dtos;
 
+import lombok.Data;
+
+@Data
 public class ResultDTO {
 
-    private int result;
-
+    private Integer numero1;
+    private Integer numero2;
+    private Integer resultado;
     private String mensagem;
 
-    public int getResult() {
-        return result;
-    }
-
-    public void setResult(int result) {
-        this.result = result;
-    }
-
-    public String getMensagem() {
-        return mensagem;
-    }
-
-    public void setMensagem(String mensagem) {
-        this.mensagem = mensagem;
-    }
 }

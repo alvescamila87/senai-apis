@@ -8,33 +8,45 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/calculator")
+@RequestMapping("/calculadora")
 public class CalculatorController {
 
     @Autowired
     CalculatorService calculatorService;
 
-    @PostMapping("/sum")
-    public ResponseEntity<ResultDTO> sum(@RequestBody CalculatorDTO inputData) {
-        final var resultado =  calculatorService.executeSum(inputData);
+    @PostMapping("/adicionar")
+    public ResponseEntity<ResultDTO> soma(@RequestBody CalculatorDTO inputData) {
+        final var resultado =  calculatorService.executaSoma(inputData);
         return ResponseEntity.ok().body(resultado);
     }
 
-    @PostMapping("/divide")
-    public ResponseEntity<ResultDTO> divide(@RequestBody CalculatorDTO inputData){
-        ResultDTO resultado = calculatorService.executeDivide(inputData);
-        return ResponseEntity.ok().body(resultado);
-    }
-
-    @PostMapping("subtract")
-    public ResponseEntity<ResultDTO> subtract(@RequestBody CalculatorDTO inputData) {
-        ResultDTO resultDTO = calculatorService.executeSubtract(inputData);
+    @PostMapping("/subtrair")
+    public ResponseEntity<ResultDTO> subtrai(@RequestBody CalculatorDTO inputData) {
+        ResultDTO resultDTO = calculatorService.executaSubtracao(inputData);
         return ResponseEntity.ok().body(resultDTO);
     }
 
-    @PostMapping("/multiply")
-    public ResponseEntity<ResultDTO> multiply(@RequestBody CalculatorDTO inputData) {
-        ResultDTO resultDTO = calculatorService.executeMultiply(inputData);
+    @PostMapping("/dividir ")
+    public ResponseEntity<ResultDTO> divide(@RequestBody CalculatorDTO inputData){
+        ResultDTO resultado = calculatorService.executaDivisao(inputData);
+        return ResponseEntity.ok().body(resultado);
+    }
+
+    @PostMapping("/multiplicar")
+    public ResponseEntity<ResultDTO> multiplica(@RequestBody CalculatorDTO inputData) {
+        ResultDTO resultDTO = calculatorService.executaMultiplicacao(inputData);
+        return ResponseEntity.ok().body(resultDTO);
+    }
+
+    @PostMapping("/potencia")
+    public ResponseEntity<ResultDTO> potencia(@RequestBody CalculatorDTO inputData) {
+        ResultDTO resultDTO = calculatorService.executaPotenciacao(inputData);
+        return ResponseEntity.ok().body(resultDTO);
+    }
+
+    @PostMapping("/modulo")
+    public ResponseEntity<ResultDTO> modulo(@RequestBody CalculatorDTO inputData) {
+        ResultDTO resultDTO = calculatorService.executaModulo(inputData);
         return ResponseEntity.ok().body(resultDTO);
     }
 }
