@@ -1,17 +1,41 @@
 package org.example;
 
-public class Ex5 {
+public class Ex6 {
 	// Teste o codigo na main em outra classe
 	private String nome;
-	private String cpf;
-	private String uf;
-	private double rendaAnual;
+	private String descricao;
+	private double preco;
+	private double peso;
+	private int estoque;
 
-	public Ex5(String nome, String cpf, String uf, double rendaAnual) {
+	public Ex6(String nome, String descricao, double preco, double peso, int estoque) {
 		setNome(nome);
-		setCpf(cpf);
-		setUf(uf);
-		setRendaAnual(rendaAnual);
+		setDescricao(descricao);
+		setPreco(preco);
+		setPeso(peso);
+		setEstoque(estoque);
+	}
+
+	public void adicionarEstoque(int quantidade) {
+		this.estoque += quantidade;
+	}
+
+	public void adicionarEstoque() {
+		this.estoque++;
+	}
+
+	public void venderProduto(int quantidade) {
+		if (quantidade > 0 && quantidade <= this.estoque) {
+			this.estoque -= quantidade;
+		} else {
+			System.err.println("Quantidade informada para venda é SUPERIOR à quantidade existente no estoque.");
+		}
+	}
+
+	public void aplicarPromocao(double porcentagemDesconto) {
+		double desconto = this.preco * (porcentagemDesconto/100);
+		this.preco = this.preco - desconto;
+
 	}
 
 	public String getNome() {
@@ -22,49 +46,36 @@ public class Ex5 {
 		this.nome = nome;
 	}
 
-	public String getCpf() {
-		return cpf;
+	public String getDescricao() {
+		return descricao;
 	}
 
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 
-	public String getUf() {
-		return uf;
+	public double getPreco() {
+		return preco;
 	}
 
-	public void setUf(String uf) {
-		this.uf = uf;
+	public void setPreco(double preco) {
+		this.preco = preco;
 	}
 
-	public double getRendaAnual() {
-		return rendaAnual;
+	public double getPeso() {
+		return peso;
 	}
 
-	public void setRendaAnual(double rendaAnual) {
-		if (rendaAnual <= 0) {
-			rendaAnual = 0;
-		}
-		this.rendaAnual = rendaAnual;
+	public void setPeso(double peso) {
+		this.peso = peso;
 	}
 
-	public double calcularImposto() {
-		double aliquota;
+	public int getEstoque() {
+		return estoque;
+	}
 
-		if (rendaAnual < 4001) {
-			aliquota = 0.0;
-		} else if (rendaAnual <= 9000) {
-			aliquota = 0.058;
-		} else if (rendaAnual <= 25000) {
-			aliquota = 0.15;
-		} else if (rendaAnual <= 35000) {
-			aliquota = 0.275;
-		} else {
-			aliquota = 0.30;
-		}
-
-		return rendaAnual * aliquota;
+	public void setEstoque(int estoque) {
+		this.estoque = estoque;
 	}
 
 }
