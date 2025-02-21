@@ -29,6 +29,9 @@ public class CalculatorService3 {
             case "%":
                 resultDTO = executaModulo(inputData);
                 break;
+
+            default:
+                System.out.println("[ERRO] Operação inválida. Tente novamente...");
         }
 
         return resultDTO;
