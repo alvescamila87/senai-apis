@@ -5,21 +5,33 @@ import com.senai.calculator.dtos.ResultDTO;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CalculatorService2 {
+public class CalculatorService3 {
 
     public ResultDTO executaOperacao(CalculatorDTO inputData) {
-        if (inputData.getOperacao().equalsIgnoreCase("adicionar")) {
-            return executaSoma(inputData);
-        } else if (inputData.getOperacao().equalsIgnoreCase("subtrair")) {
-            return executaSubtracao(inputData);
-        } else if (inputData.getOperacao().equalsIgnoreCase("dividir")) {
-            return executaDivisao(inputData);
-        } else if (inputData.getOperacao().equalsIgnoreCase("multiplicar")) {
-            return executaMultiplicacao(inputData);
-        } else if (inputData.getOperacao().equalsIgnoreCase("potencia")) {
-            return executaPotenciacao(inputData);
+        ResultDTO resultDTO = new ResultDTO();
+
+        switch (inputData.getOperacao()){
+            case "+":
+                resultDTO = executaSoma(inputData);
+                break;
+            case "-":
+                resultDTO = executaSubtracao(inputData);
+                break;
+            case "*":
+                resultDTO = executaMultiplicacao(inputData);
+                break;
+            case "/":
+                resultDTO = executaDivisao(inputData);
+                break;
+            case "^":
+                resultDTO = executaPotenciacao(inputData);
+                break;
+            case "%":
+                resultDTO = executaModulo(inputData);
+                break;
         }
-        return executaModulo(inputData);
+
+        return resultDTO;
     }
 
     protected ResultDTO executaSoma(CalculatorDTO inputData) {
@@ -48,7 +60,6 @@ public class CalculatorService2 {
         } catch (ArithmeticException e) {
             resultDTO.setMensagem("Divisão por zero.");
         }
-
         return resultDTO;
     }
 
