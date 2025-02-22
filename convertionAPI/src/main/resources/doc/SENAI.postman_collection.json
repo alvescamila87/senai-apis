@@ -1,0 +1,136 @@
+{
+	"info": {
+		"_postman_id": "0750d296-38cf-4a3b-953a-162bd33dbc89",
+		"name": "SENAI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "37805620"
+	},
+	"item": [
+		{
+			"name": "m-cm",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"valor\": 550,\r\n\t\"tipoConversao\": \"m-cm\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/converter"
+			},
+			"response": []
+		},
+		{
+			"name": "kg-g",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"valor\": 222,\r\n\t\"tipoConversao\": \"kg-g\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/converter"
+			},
+			"response": []
+		},
+		{
+			"name": "g-kg",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"valor\": 222,\r\n\t\"tipoConversao\": \"g-kg\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/converter"
+			},
+			"response": []
+		},
+		{
+			"name": "cm-m",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"valor\": 200,\r\n\t\"tipoConversao\": \"cm-M\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/converter"
+			},
+			"response": []
+		},
+		{
+			"name": "c-f",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"valor\": 1,\r\n\t\"tipoConversao\": \"c-f\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/converter"
+			},
+			"response": []
+		},
+		{
+			"name": "f-c",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"valor\": 1,\r\n\t\"tipoConversao\": \"f-c\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/converter"
+			},
+			"response": []
+		},
+		{
+			"name": "mensagem de erro",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"valor\": 1,\r\n\t\"tipoConversao\": \"fsdfdsfsdfsdf\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/converter"
+			},
+			"response": []
+		}
+	]
+}

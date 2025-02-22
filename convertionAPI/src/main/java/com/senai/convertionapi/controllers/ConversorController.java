@@ -17,53 +17,24 @@ public class ConversorController {
     @Autowired
     private ConversorService service;
 
-//    @PostMapping
-//    public ResponseEntity<RespostaDTO> realizarConversaoComprimento(@RequestBody RequisicaoDTO requisicao) {
-//        RespostaDTO respostaDTO = service.converterComprimento(requisicao);
-//
-//        if(requisicao.getTipoConversao().equalsIgnoreCase("cm-m")){
-//            return ResponseEntity.ok().body(respostaDTO);
-//        }  else if(requisicao.getTipoConversao().equalsIgnoreCase("m-cm")){
-//            return ResponseEntity.ok().body(respostaDTO);
-//        }
-//        return ResponseEntity.status(400).body(respostaDTO);
-//    }
-
     @PostMapping
     public ResponseEntity<RespostaDTO> realizarConversao(@RequestBody RequisicaoDTO dto) {
-        RespostaDTO respostaDTO = null;
 
-//        if(dto.getTipoConversao().equalsIgnoreCase("cm-m")) {
-//            respostaDTO = service.converterComprimento(dto);
-//        }
-
-        switch (dto.getTipoConversao().toLowerCase()) {
-            case "cm-m":
-                respostaDTO = (service.converterComprimento(dto));
-                break;
-            case "m-cm":
-                respostaDTO = service.converterComprimento(dto);
-                break;
-            case "g-kg":
-                respostaDTO = service.converterMassa(dto);
-                break;
-            case "kg-g":
-                respostaDTO = service.converterMassa(dto);
-                break;
-            case "c-f":
-                respostaDTO = service.converterTemperatura(dto);
-                break;
-            case "f-c":
-                respostaDTO = service.converterTemperatura(dto);
-                break;
-            default:
-                return ResponseEntity.badRequest().body(respostaDTO);
-
+        if (dto.getTipoConversao().equalsIgnoreCase("cm-m")) {
+            return ResponseEntity.ok().body(service.converterComprimento(dto));
+        } else if (dto.getTipoConversao().equalsIgnoreCase("m-cm")) {
+            return ResponseEntity.ok().body(service.converterComprimento(dto));
+        } else if (dto.getTipoConversao().equalsIgnoreCase("g-kg")) {
+            return ResponseEntity.ok().body(service.converterMassa(dto));
+        } else if (dto.getTipoConversao().equalsIgnoreCase("kg-g")) {
+            return ResponseEntity.ok().body(service.converterMassa(dto));
+        } else if (dto.getTipoConversao().equalsIgnoreCase("c-f")) {
+            return ResponseEntity.ok().body(service.converterTemperatura(dto));
+        } else if (dto.getTipoConversao().equalsIgnoreCase("f-c")) {
+            return ResponseEntity.ok().body(service.converterTemperatura(dto));
         }
 
-        return ResponseEntity.ok().body(respostaDTO);
-
+        return ResponseEntity.status(400).body(service.converterComprimento(dto));
     }
-
 
 }

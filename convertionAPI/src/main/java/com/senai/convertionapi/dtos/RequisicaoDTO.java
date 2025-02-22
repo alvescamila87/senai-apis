@@ -1,16 +1,19 @@
 package com.senai.convertionapi.dtos;
 
+import lombok.Getter;
+import lombok.Setter;
+
 public class RequisicaoDTO {
 
-    private Integer valor;
+    private Double valor;
     private String tipoConversao;
     private String mensagem;
 
-    public Integer getValor() {
+    public Double getValor() {
         return valor;
     }
 
-    public void setValor(Integer valor) {
+    public void setValor(Double valor) {
         this.valor = valor;
     }
 
