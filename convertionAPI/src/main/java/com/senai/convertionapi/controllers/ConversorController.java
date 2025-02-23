@@ -26,7 +26,7 @@ public class ConversorController {
             return ResponseEntity.ok().body(respostaDTO);
         }
 
-        return ResponseEntity.status(400).body(respostaDTO);
+        return ResponseEntity.badRequest().body(respostaDTO);
     }
 
 }
