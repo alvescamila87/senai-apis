@@ -20,21 +20,13 @@ public class ConversorController {
     @PostMapping
     public ResponseEntity<RespostaDTO> realizarConversao(@RequestBody RequisicaoDTO dto) {
 
-        if (dto.getTipoConversao().equalsIgnoreCase("cm-m")) {
-            return ResponseEntity.ok().body(service.converterComprimento(dto));
-        } else if (dto.getTipoConversao().equalsIgnoreCase("m-cm")) {
-            return ResponseEntity.ok().body(service.converterComprimento(dto));
-        } else if (dto.getTipoConversao().equalsIgnoreCase("g-kg")) {
-            return ResponseEntity.ok().body(service.converterMassa(dto));
-        } else if (dto.getTipoConversao().equalsIgnoreCase("kg-g")) {
-            return ResponseEntity.ok().body(service.converterMassa(dto));
-        } else if (dto.getTipoConversao().equalsIgnoreCase("c-f")) {
-            return ResponseEntity.ok().body(service.converterTemperatura(dto));
-        } else if (dto.getTipoConversao().equalsIgnoreCase("f-c")) {
-            return ResponseEntity.ok().body(service.converterTemperatura(dto));
+        RespostaDTO respostaDTO = service.converterPorTipo(dto);
+
+        if(respostaDTO.getErro() == null) {
+            return ResponseEntity.ok().body(respostaDTO);
         }
 
-        return ResponseEntity.status(400).body(service.converterComprimento(dto));
+        return ResponseEntity.status(400).body(respostaDTO);
     }
 
 }
