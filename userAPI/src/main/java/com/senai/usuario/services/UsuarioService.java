@@ -10,25 +10,35 @@ import java.util.List;
 @Service
 public class UsuarioService {
 
-    public UsuarioModel createUser(UsuarioDTO usuarioDTO) {
-        UsuarioModel usuarioModel = new UsuarioModel();
-
-        if(usuarioDTO != null) {
-            usuarioModel.setId(usuarioModel.getId());
-            usuarioModel.setNome(usuarioDTO.getNome());
-            return usuarioModel;
-        }
-
-        return null;
-
-    }
-
-    public List<UsuarioModel> listaUsuarios(UsuarioDTO usuarioDTO) {
-        UsuarioModel newUser = createUser(usuarioDTO);
-
-        List<UsuarioModel> listaUsuarios = new ArrayList<>();
-        listaUsuarios.add(newUser);
-
-        return  listaUsuarios;
-    }
+//    public UsuarioModel createUser(UsuarioDTO usuarioRequestDTO) {
+//        UsuarioModel usuarioModel = new UsuarioModel();
+//        List<UsuarioDTO> listaUsuarios = new ArrayList<>();
+//
+//        if(usuarioRequestDTO != null) {
+//            usuarioModel.setId(usuarioRequestDTO.getId());
+//            usuarioModel.setNome(usuarioRequestDTO.getNome());
+//            //listaUsuarios.add();
+//            //usuarioModel.setListaUsuarios(usuarioDTO);
+//
+//            for(UsuarioDTO user : listaUsuarios) {
+//                listaUsuarios.add(user);
+//            }
+//            return usuarioModel;
+//        }
+//
+//        return null;
+//
+//    }
+//
+//    public List<UsuarioDTO> listaUsuarios() {
+//        List<UsuarioDTO> listaUsuarios = new ArrayList<>();
+//        for(UsuarioDTO dto : listaUsuarios) {
+//           UsuarioDTO usuarioRequestDTO = new UsuarioDTO();
+//           usuarioRequestDTO.set
+//           listaUsuarios.add(usu)
+//            System.out.println(usuario);
+//        }
+//
+//        return listaUsuarios;
+//    }
 }

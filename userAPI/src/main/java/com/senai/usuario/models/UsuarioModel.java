@@ -1,20 +1,24 @@
 package com.senai.usuario.models;
 
-
-import java.util.ArrayList;
-import java.util.List;
-
 public class UsuarioModel {
 
-    private String id;
+    private int id;
     private String nome;
-    private List<UsuarioModel> listaUsuarios = new ArrayList<>();
+    private String login;
+    private String senha;
 
-    public String getId() {
+    public UsuarioModel(int id, String nome, String login, String senha) {
+        this.id = id;
+        this.nome = nome;
+        this.login = login;
+        this.senha = senha;
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -26,11 +30,29 @@ public class UsuarioModel {
         this.nome = nome;
     }
 
-    public List<UsuarioModel> getListaUsuarios() {
-        return listaUsuarios;
+    public String getLogin() {
+        return login;
     }
 
-    public void setListaUsuarios(List<UsuarioModel> listaUsuarios) {
-        this.listaUsuarios = listaUsuarios;
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    @Override
+    public String toString() {
+        return "UsuarioModel {" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", login='" + login + '\'' +
+                ", senha='" + senha + '\'' +
+                '}';
     }
 }
