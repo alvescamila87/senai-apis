@@ -28,5 +28,10 @@ public class UsuarioService {
         return mensagemDTO;
     }
 
+    public List<ListaUsuarioDTO> listaUsuarios() {
+        List<ListaUsuarioDTO> listaUsuarios = new ArrayList<>();
+        return
+    }
+
 
 }
