@@ -1,6 +1,6 @@
 package com.senai.usuario.dtos;
 
-public class UsuarioDTO {
+public class RequisicaoDTO {
 
     private int id;
     private String nome;

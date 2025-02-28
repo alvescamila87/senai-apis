@@ -2,23 +2,16 @@ package com.senai.usuario.models;
 
 public class UsuarioModel {
 
-    private int id;
+    private Integer id;
     private String nome;
     private String login;
     private String senha;
 
-    public UsuarioModel(int id, String nome, String login, String senha) {
-        this.id = id;
-        this.nome = nome;
-        this.login = login;
-        this.senha = senha;
-    }
-
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

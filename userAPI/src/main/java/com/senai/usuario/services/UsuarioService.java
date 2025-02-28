@@ -1,6 +1,7 @@
 package com.senai.usuario.services;
 
-import com.senai.usuario.dtos.UsuarioDTO;
+import com.senai.usuario.dtos.MensagemDTO;
+import com.senai.usuario.dtos.RequisicaoDTO;
 import com.senai.usuario.models.UsuarioModel;
 import org.springframework.stereotype.Service;
 
@@ -10,35 +11,22 @@ import java.util.List;
 @Service
 public class UsuarioService {
 
-//    public UsuarioModel createUser(UsuarioDTO usuarioRequestDTO) {
-//        UsuarioModel usuarioModel = new UsuarioModel();
-//        List<UsuarioDTO> listaUsuarios = new ArrayList<>();
-//
-//        if(usuarioRequestDTO != null) {
-//            usuarioModel.setId(usuarioRequestDTO.getId());
-//            usuarioModel.setNome(usuarioRequestDTO.getNome());
-//            //listaUsuarios.add();
-//            //usuarioModel.setListaUsuarios(usuarioDTO);
-//
-//            for(UsuarioDTO user : listaUsuarios) {
-//                listaUsuarios.add(user);
-//            }
-//            return usuarioModel;
-//        }
-//
-//        return null;
-//
-//    }
-//
-//    public List<UsuarioDTO> listaUsuarios() {
-//        List<UsuarioDTO> listaUsuarios = new ArrayList<>();
-//        for(UsuarioDTO dto : listaUsuarios) {
-//           UsuarioDTO usuarioRequestDTO = new UsuarioDTO();
-//           usuarioRequestDTO.set
-//           listaUsuarios.add(usu)
-//            System.out.println(usuario);
-//        }
-//
-//        return listaUsuarios;
-//    }
+    private List<UsuarioModel> listaUsuario = new ArrayList<>();
+
+    public MensagemDTO adicionarUsuario(RequisicaoDTO requisicaoDTO) {
+        MensagemDTO mensagemDTO = new MensagemDTO();
+
+        UsuarioModel usuarioModel = new UsuarioModel();
+        usuarioModel.setId(requisicaoDTO.getId());
+        usuarioModel.setNome(requisicaoDTO.getNome());
+        usuarioModel.setLogin(requisicaoDTO.getLogin());
+        usuarioModel.setSenha(requisicaoDTO.getSenha());
+
+        listaUsuario.add(usuarioModel);
+        mensagemDTO.setMensagem("Usuário " + requisicaoDTO.getNome() + " cadastrado com sucesso!");
+
+        return mensagemDTO;
+    }
+
+
 }

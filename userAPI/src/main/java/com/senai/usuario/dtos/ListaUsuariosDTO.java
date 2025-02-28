@@ -1,11 +1,10 @@
 package com.senai.usuario.dtos;
 
-public class ResponseDTO {
+public class ListaUsuariosDTO {
 
     private Integer id;
     private String nome;
     private String login;
-    private String senha;
 
     public Integer getId() {
         return id;
@@ -29,13 +28,5 @@ public class ResponseDTO {
 
     public void setLogin(String login) {
         this.login = login;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
     }
 }
