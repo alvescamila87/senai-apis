@@ -1,7 +1,9 @@
 package com.senai.usuario.services;
 
+import com.senai.usuario.dtos.ListaUsuariosDTO;
 import com.senai.usuario.dtos.MensagemDTO;
 import com.senai.usuario.dtos.RequisicaoDTO;
+import com.senai.usuario.dtos.ResponseDTO;
 import com.senai.usuario.models.UsuarioModel;
 import org.springframework.stereotype.Service;
 
@@ -28,9 +30,31 @@ public class UsuarioService {
         return mensagemDTO;
     }
 
-    public List<ListaUsuarioDTO> listaUsuarios() {
-        List<ListaUsuarioDTO> listaUsuarios = new ArrayList<>();
-        return
+    public ResponseDTO pesquisaUsuarioPorId(Integer id) {
+       ResponseDTO responseDTO = new ResponseDTO();
+
+        for(UsuarioModel usuarioModel : listaUsuario) {
+            if(usuarioModel.getId().equals(id)) {
+                responseDTO.setId(usuarioModel.getId());
+                responseDTO.setNome(usuarioModel.getNome());
+                responseDTO.setLogin(usuarioModel.getLogin());
+                responseDTO.setSenha(usuarioModel.getSenha());
+            }
+        }
+
+        return responseDTO;
+    }
+
+    public List<ListaUsuariosDTO> listaUsuarios() {
+        List<ListaUsuariosDTO> listaUsuarios = new ArrayList<>();
+
+        for (UsuarioModel usuarioModel : listaUsuario) {
+            ListaUsuariosDTO listaUsuariosDTO = new ListaUsuariosDTO();
+
+        }
+
+
+        return listaUsuarios;
     }
 
 

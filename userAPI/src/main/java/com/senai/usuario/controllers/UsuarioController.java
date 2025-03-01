@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/crud")
@@ -19,7 +20,7 @@ public class UsuarioController {
     @Autowired
     UsuarioService service;
 
-    @PostMapping()
+    @PostMapping("usuario")
     public ResponseEntity<MensagemDTO> createUser(@RequestBody RequisicaoDTO requisicaoDTO) {
         MensagemDTO mensagemDTO = service.adicionarUsuario(requisicaoDTO);
 
@@ -35,8 +36,7 @@ public class UsuarioController {
 
     @GetMapping("/usuario/{id}")
     public ResponseEntity<ResponseDTO> getUser(@PathVariable Integer id) {
-        ResponseDTO responseDTO = new ResponseDTO();
-
+        ResponseDTO responseDTO = service.pesquisaUsuarioPorId(id);
         return ResponseEntity.ok().body(responseDTO);
     }
 
