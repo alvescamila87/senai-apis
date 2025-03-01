@@ -27,17 +27,17 @@ public class UsuarioController {
         return ResponseEntity.ok().body(mensagemDTO);
     }
 
-    @GetMapping("/usuarios")
-    public ResponseEntity<List<ListaUsuariosDTO>> usersList() {
-        List<ListaUsuariosDTO> listaUsuarios = new ArrayList<>();
-
-        return ResponseEntity.ok().body(listaUsuarios);
-    }
-
     @GetMapping("/usuario/{id}")
-    public ResponseEntity<ResponseDTO> getUser(@PathVariable Integer id) {
+    public ResponseEntity<ResponseDTO> findUserById(@PathVariable Integer id) {
         ResponseDTO responseDTO = service.pesquisaUsuarioPorId(id);
         return ResponseEntity.ok().body(responseDTO);
+    }
+
+    @GetMapping("/usuarios")
+    public ResponseEntity<List<ListaUsuariosDTO>> findAllUsers() {
+        List<ListaUsuariosDTO> listaUsuarios = service.listaUsuarios();
+
+        return ResponseEntity.ok().body(listaUsuarios);
     }
 
     @PutMapping("/usuario/{id}")

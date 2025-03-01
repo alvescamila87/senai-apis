@@ -50,9 +50,11 @@ public class UsuarioService {
 
         for (UsuarioModel usuarioModel : listaUsuario) {
             ListaUsuariosDTO listaUsuariosDTO = new ListaUsuariosDTO();
-
+            listaUsuariosDTO.setId(usuarioModel.getId());
+            listaUsuariosDTO.setNome(usuarioModel.getNome());
+            listaUsuariosDTO.setLogin(usuarioModel.getLogin());
+            listaUsuarios.add(listaUsuariosDTO);
         }
-
 
         return listaUsuarios;
     }
