@@ -2,7 +2,6 @@ package com.senai.usuario.services;
 
 import com.senai.usuario.dtos.*;
 import com.senai.usuario.models.UsuarioModel;
-import org.springframework.context.support.MessageSourceAccessor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -47,9 +46,15 @@ public class UsuarioService {
 
         UsuarioModel usuarioModel = new UsuarioModel();
 
-        if(validacaoIdUnico(requisicaoDTO.getId())) {
+        if(validacaoDuplicidadeId(requisicaoDTO.getId())) {
             mensagemDTO.setStatusSucesso(false);
-            mensagemDTO.setMensagem("ERRO: ID " + requisicaoDTO.getId() + " já cadastrado! Tente outro");
+            mensagemDTO.setMensagem("ERRO: ID " + requisicaoDTO.getId() + " já cadastrado! Tente outro...");
+            return mensagemDTO;
+        }
+
+        if(validacaoDuplicidadeLogin(requisicaoDTO.getLogin())) {
+            mensagemDTO.setStatusSucesso(false);
+            mensagemDTO.setMensagem("ERRO: Login " + requisicaoDTO.getLogin() + " já cadastrado. Tente outro...");
             return mensagemDTO;
         }
 
@@ -72,6 +77,13 @@ public class UsuarioService {
         mensagemDTO.setStatusSucesso(false);
 
         for(UsuarioModel usuarioModel : listaUsuariosBancoDados) {
+
+            if(validacaoDuplicidadeLogin(requisicaoDTO.getLogin())) {
+                mensagemDTO.setStatusSucesso(false);
+                mensagemDTO.setMensagem("ERRO: Login " + requisicaoDTO.getLogin() + " já cadastrado. Tente outro...");
+                return mensagemDTO;
+            }
+
             if(usuarioModel.getId().equals(id)) {
                 usuarioModel.setNome(requisicaoDTO.getNome());
                 usuarioModel.setLogin(requisicaoDTO.getLogin());
@@ -107,15 +119,6 @@ public class UsuarioService {
         return mensagemDTO;
     }
 
-    public boolean validacaoIdUnico(Integer id) {
-        for(UsuarioModel usuarioModel : listaUsuariosBancoDados) {
-            if(id.equals(usuarioModel.getId())) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     public MensagemDTO autenticarUsuario(AutenticacaoDTO autenticacaoDTO) {
         MensagemDTO mensagemDTO = new MensagemDTO();
         mensagemDTO.setMensagem("ERRO: Erro ao realizar autenticação do usuário. Login ou senha não incorretos ou inexistentes.");
@@ -129,5 +132,23 @@ public class UsuarioService {
         }
 
         return mensagemDTO;
+    }
+
+    private boolean validacaoDuplicidadeId(Integer id) {
+        for(UsuarioModel usuarioModel : listaUsuariosBancoDados) {
+            if(id.equals(usuarioModel.getId())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean validacaoDuplicidadeLogin(String login) {
+        for(UsuarioModel usuarioModel : listaUsuariosBancoDados) {
+            if(login.equals(usuarioModel.getLogin())) {
+                return true;
+            }
+        }
+        return false;
     }
 }
