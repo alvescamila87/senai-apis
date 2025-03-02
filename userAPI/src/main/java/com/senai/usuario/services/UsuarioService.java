@@ -78,13 +78,14 @@ public class UsuarioService {
 
         for(UsuarioModel usuarioModel : listaUsuariosBancoDados) {
 
-            if(validacaoDuplicidadeLogin(requisicaoDTO.getLogin())) {
-                mensagemDTO.setStatusSucesso(false);
-                mensagemDTO.setMensagem("ERRO: Login " + requisicaoDTO.getLogin() + " já cadastrado. Tente outro...");
-                return mensagemDTO;
-            }
-
             if(usuarioModel.getId().equals(id)) {
+
+                if(!usuarioModel.getLogin().equals(requisicaoDTO.getLogin()) && validacaoDuplicidadeLogin(requisicaoDTO.getLogin())) {
+                    mensagemDTO.setStatusSucesso(false);
+                    mensagemDTO.setMensagem("ERRO: Login " + requisicaoDTO.getLogin() + " já cadastrado. Tente outro...");
+                    return mensagemDTO;
+                }
+
                 usuarioModel.setNome(requisicaoDTO.getNome());
                 usuarioModel.setLogin(requisicaoDTO.getLogin());
                 usuarioModel.setSenha(requisicaoDTO.getSenha());
