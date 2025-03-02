@@ -1,10 +1,8 @@
 package com.senai.usuario.services;
 
-import com.senai.usuario.dtos.ListaUsuariosDTO;
-import com.senai.usuario.dtos.MensagemDTO;
-import com.senai.usuario.dtos.RequisicaoDTO;
-import com.senai.usuario.dtos.ResponseDTO;
+import com.senai.usuario.dtos.*;
 import com.senai.usuario.models.UsuarioModel;
+import org.springframework.context.support.MessageSourceAccessor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -68,7 +66,7 @@ public class UsuarioService {
         for(UsuarioModel usuarioModel : listaUsuariosBancoDados) {
             if(usuarioModel.getId().equals(id)) {
                 usuarioModel.setNome(requisicaoDTO.getNome());
-                usuarioModel.setLogin(requisicaoDTO.getLogin());
+                //usuarioModel.setLogin(requisicaoDTO.getLogin());
                 usuarioModel.setSenha(requisicaoDTO.getSenha());
                 mensagemDTO.setStatusSucesso(true);
                 mensagemDTO.setMensagem("Usuário atualizado com sucesso!");
@@ -96,6 +94,21 @@ public class UsuarioService {
             listaUsuariosBancoDados.remove(usuarioPesquisado);
             mensagemDTO.setStatusSucesso(true);
             mensagemDTO.setMensagem("Usuário excluído com sucesso!");
+        }
+
+        return mensagemDTO;
+    }
+
+    public MensagemDTO autenticarUsuario(AutenticacaoDTO autenticacaoDTO) {
+        MensagemDTO mensagemDTO = new MensagemDTO();
+        mensagemDTO.setMensagem("ERRO: Erro ao realizar autenticação do usuário. Login ou senha não incorretos ou inexistentes.");
+        mensagemDTO.setStatusSucesso(false);
+
+        for(UsuarioModel usuarioModel : listaUsuariosBancoDados) {
+            if(autenticacaoDTO.getLogin().equals(usuarioModel.getLogin()) && autenticacaoDTO.getSenha().equals(usuarioModel.getSenha())) {
+                mensagemDTO.setStatusSucesso(true);
+                mensagemDTO.setMensagem("Usuário autenticado com sucesso!");
+            }
         }
 
         return mensagemDTO;
