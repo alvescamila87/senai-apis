@@ -46,6 +46,13 @@ public class UsuarioService {
         MensagemDTO mensagemDTO = new MensagemDTO();
 
         UsuarioModel usuarioModel = new UsuarioModel();
+
+        if(validacaoIdUnico(requisicaoDTO.getId())) {
+            mensagemDTO.setStatusSucesso(false);
+            mensagemDTO.setMensagem("ERRO: ID " + requisicaoDTO.getId() + " já cadastrado! Tente outro");
+            return mensagemDTO;
+        }
+
         usuarioModel.setId(requisicaoDTO.getId());
         usuarioModel.setNome(requisicaoDTO.getNome());
         usuarioModel.setLogin(requisicaoDTO.getLogin());
@@ -53,6 +60,7 @@ public class UsuarioService {
 
         listaUsuariosBancoDados.add(usuarioModel);
         mensagemDTO.setMensagem("Usuário " + requisicaoDTO.getNome() + " cadastrado com sucesso!");
+        mensagemDTO.setStatusSucesso(true);
 
         return mensagemDTO;
     }
@@ -66,7 +74,7 @@ public class UsuarioService {
         for(UsuarioModel usuarioModel : listaUsuariosBancoDados) {
             if(usuarioModel.getId().equals(id)) {
                 usuarioModel.setNome(requisicaoDTO.getNome());
-                //usuarioModel.setLogin(requisicaoDTO.getLogin());
+                usuarioModel.setLogin(requisicaoDTO.getLogin());
                 usuarioModel.setSenha(requisicaoDTO.getSenha());
                 mensagemDTO.setStatusSucesso(true);
                 mensagemDTO.setMensagem("Usuário atualizado com sucesso!");
@@ -99,18 +107,12 @@ public class UsuarioService {
         return mensagemDTO;
     }
 
-    public MensagemDTO autenticarUsuario(AutenticacaoDTO autenticacaoDTO) {
-        MensagemDTO mensagemDTO = new MensagemDTO();
-        mensagemDTO.setMensagem("ERRO: Erro ao realizar autenticação do usuário. Login ou senha não incorretos ou inexistentes.");
-        mensagemDTO.setStatusSucesso(false);
-
+    public boolean validacaoIdUnico(Integer id) {
         for(UsuarioModel usuarioModel : listaUsuariosBancoDados) {
-            if(autenticacaoDTO.getLogin().equals(usuarioModel.getLogin()) && autenticacaoDTO.getSenha().equals(usuarioModel.getSenha())) {
-                mensagemDTO.setStatusSucesso(true);
-                mensagemDTO.setMensagem("Usuário autenticado com sucesso!");
+            if(id.equals(usuarioModel.getId())) {
+                return true;
             }
         }
-
-        return mensagemDTO;
+        return false;
     }
 }

@@ -22,7 +22,10 @@ public class UsuarioController {
     public ResponseEntity<MensagemDTO> createUser(@RequestBody RequisicaoDTO requisicaoDTO) {
         MensagemDTO mensagemDTO = service.adicionarUsuario(requisicaoDTO);
 
-        return ResponseEntity.ok().body(mensagemDTO);
+        if (mensagemDTO.isStatusSucesso()) {
+            return ResponseEntity.ok().body(mensagemDTO);
+        }
+        return ResponseEntity.status(404).body(mensagemDTO);
     }
 
     @GetMapping("/usuario/{id}")
