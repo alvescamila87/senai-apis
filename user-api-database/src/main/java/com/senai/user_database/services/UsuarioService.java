@@ -23,7 +23,6 @@ public class UsuarioService {
         }
 
         Usuario novoUsuario = new Usuario();
-        novoUsuario.setId(requisicaoDTO.getId());
         novoUsuario.setNome(requisicaoDTO.getNome());
         novoUsuario.setLogin(requisicaoDTO.getLogin());
         novoUsuario.setSenha(requisicaoDTO.getSenha());

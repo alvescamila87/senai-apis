@@ -7,7 +7,6 @@ import lombok.Setter;
 @Setter
 public class RequisicaoDTO {
 
-    private Long id;
     private String nome;
     private String login;
     private String senha;
