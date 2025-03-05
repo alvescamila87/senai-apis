@@ -51,5 +51,6 @@ public class UsuarioService {
         return listaUsuarios;
 
         //versão 17.0.4 temurim
+        //versão 11 também não funciona
     }
 }
