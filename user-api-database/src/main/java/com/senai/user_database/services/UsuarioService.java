@@ -8,8 +8,8 @@ import com.senai.user_database.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
+
 
 @Service
 public class UsuarioService {
@@ -38,19 +38,7 @@ public class UsuarioService {
         return mensagemDTO;
     }
 
-    public List<ListaUsuarioDTO> listarUsuario(RequisicaoDTO requisicaoDTO) {
-        List<ListaUsuarioDTO> listaUsuarios = new ArrayList<>();
-
-        ListaUsuarioDTO lista = new ListaUsuarioDTO();
-        lista.setNome(requisicaoDTO.getNome());
-        lista.setLogin(requisicaoDTO.getLogin());
-        listaUsuarios.add(lista);
-
-        repository.findAll(listaUsuarios);
-
-        return listaUsuarios;
-
-        //versão 17.0.4 temurim
-        //versão 11 também não funciona
+    public List<Usuario> listarUsuarios() {
+        return repository.findAll();
     }
 }

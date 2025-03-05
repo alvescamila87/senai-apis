@@ -1,14 +1,15 @@
 package com.senai.user_database.controllers;
 
+import com.senai.user_database.dtos.ListaUsuarioDTO;
 import com.senai.user_database.dtos.MensagemDTO;
 import com.senai.user_database.dtos.RequisicaoDTO;
+import com.senai.user_database.models.Usuario;
 import com.senai.user_database.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/crud")
@@ -25,5 +26,13 @@ public class UsuarioController {
             return ResponseEntity.ok().body(mensagemDTO);
         }
         return ResponseEntity.status(404).body(mensagemDTO);
+    }
+
+    @GetMapping("/usuarios")
+    public ResponseEntity<List<ListaUsuarioDTO>> listarUsuarios() {
+        List<Usuario> lista = service.listarUsuarios();
+        List<ListaUsuarioDTO> listaUsuarioDTOS = ListaUsuarioDTO.of(lista);
+
+        return ResponseEntity.ok().body(listaUsuarioDTOS);
     }
 }
