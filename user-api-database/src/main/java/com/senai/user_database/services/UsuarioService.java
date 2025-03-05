@@ -49,5 +49,7 @@ public class UsuarioService {
         repository.findAll(listaUsuarios);
 
         return listaUsuarios;
+
+        //versão 17.0.4 temurim
     }
 }
