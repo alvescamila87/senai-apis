@@ -4,6 +4,7 @@ import com.senai.user_database.models.Usuario;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -22,7 +23,20 @@ public class ListaUsuarioDTO {
         this.login = usuario.getLogin();
     }
 
-    public static List<ListaUsuarioDTO> of(List<Usuario> usuarios) {
-        return usuarios.stream().map(ListaUsuarioDTO::new).collect(Collectors.toList());
+    /**
+     * Modo avançado
+     * //    public static List<ListaUsuarioDTO> of(List<Usuario> usuarios) {
+     * //        return usuarios.stream().map(ListaUsuarioDTO::new).collect(Collectors.toList());
+     * //    }
+     */
+    public static List<ListaUsuarioDTO> converterDe(List<Usuario> listaUsuariosModel) {
+        List<ListaUsuarioDTO> listaUsuarioDTOS = new ArrayList<>();
+
+        for(Usuario usuario : listaUsuariosModel) {
+            ListaUsuarioDTO usuarioDTO = new ListaUsuarioDTO(usuario);
+            listaUsuarioDTOS.add(usuarioDTO);
+        }
+
+        return listaUsuarioDTOS;
     }
 }

@@ -3,6 +3,7 @@ package com.senai.user_database.services;
 import com.senai.user_database.dtos.ListaUsuarioDTO;
 import com.senai.user_database.dtos.MensagemDTO;
 import com.senai.user_database.dtos.RequisicaoDTO;
+import com.senai.user_database.dtos.RespostaDTO;
 import com.senai.user_database.models.Usuario;
 import com.senai.user_database.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,5 +41,9 @@ public class UsuarioService {
 
     public List<Usuario> listarUsuarios() {
         return repository.findAll();
+    }
+
+    public RespostaDTO buscarUsuarioPorId(Long id, RequisicaoDTO requisicaoDTO) {
+        RespostaDTO respostaDTO = new
     }
 }

@@ -31,7 +31,7 @@ public class UsuarioController {
     @GetMapping("/usuarios")
     public ResponseEntity<List<ListaUsuarioDTO>> listarUsuarios() {
         List<Usuario> lista = service.listarUsuarios();
-        List<ListaUsuarioDTO> listaUsuarioDTOS = ListaUsuarioDTO.of(lista);
+        List<ListaUsuarioDTO> listaUsuarioDTOS = ListaUsuarioDTO.converterDe(lista);
 
         return ResponseEntity.ok().body(listaUsuarioDTOS);
     }
