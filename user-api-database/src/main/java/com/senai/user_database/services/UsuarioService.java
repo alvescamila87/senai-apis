@@ -60,6 +60,20 @@ public class UsuarioService {
         }
 
         return respostaDTO;
+    }
 
+    public MensagemDTO atualizarUsuario(Long id, RequisicaoDTO requisicaoDTO){
+        MensagemDTO mensagemDTO = new MensagemDTO();
+        mensagemDTO.setMensagem("ERRO ao atualizar usuário.");
+        mensagemDTO.setSucesso(false);
+
+        Optional<Usuario> usuarioIdPesquisado = repository.findById(id);
+        if(usuarioIdPesquisado.isPresent()) {
+
+        }
+
+
+
+        return mensagemDTO;
     }
 }
