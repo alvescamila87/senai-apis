@@ -9,7 +9,9 @@ import com.senai.user_database.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.swing.text.html.Option;
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -43,7 +45,21 @@ public class UsuarioService {
         return repository.findAll();
     }
 
-    public RespostaDTO buscarUsuarioPorId(Long id, RequisicaoDTO requisicaoDTO) {
-        RespostaDTO respostaDTO = new
+    public RespostaDTO buscarUsuarioPorId(Long id) {
+        RespostaDTO respostaDTO = new RespostaDTO();
+
+        Optional<Usuario> usuarioIdPesquisado = repository.findById(id);
+
+        if(usuarioIdPesquisado.isPresent()) {
+            respostaDTO.setId(usuarioIdPesquisado.get().getId());
+            respostaDTO.setNome(usuarioIdPesquisado.get().getNome());
+            respostaDTO.setLogin(usuarioIdPesquisado.get().getLogin());
+            respostaDTO.setSenha(usuarioIdPesquisado.get().getSenha());
+        } else {
+            return null;
+        }
+
+        return respostaDTO;
+
     }
 }

@@ -3,6 +3,7 @@ package com.senai.user_database.controllers;
 import com.senai.user_database.dtos.ListaUsuarioDTO;
 import com.senai.user_database.dtos.MensagemDTO;
 import com.senai.user_database.dtos.RequisicaoDTO;
+import com.senai.user_database.dtos.RespostaDTO;
 import com.senai.user_database.models.Usuario;
 import com.senai.user_database.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,5 +35,12 @@ public class UsuarioController {
         List<ListaUsuarioDTO> listaUsuarioDTOS = ListaUsuarioDTO.converterDe(lista);
 
         return ResponseEntity.ok().body(listaUsuarioDTOS);
+    }
+
+    @GetMapping("/usuario/{id}")
+    public ResponseEntity<RespostaDTO> buscarUsuarioPorId(@PathVariable Long id) {
+        RespostaDTO respostaDTO = service.buscarUsuarioPorId(id);
+
+        return ResponseEntity.ok().body(respostaDTO);
     }
 }
