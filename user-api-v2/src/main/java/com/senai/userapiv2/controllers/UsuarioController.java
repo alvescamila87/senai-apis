@@ -54,5 +54,13 @@ public class UsuarioController {
         return  ResponseEntity.status(404).body(mensagemDTO);
     }
 
+    @DeleteMapping("/usuario/{id}")
+    public ResponseEntity<MensagemDTO> deletarUsuario(@PathVariable Long id) {
+        MensagemDTO mensagemDTO = service.deletarUsuario(id);
 
+        if(mensagemDTO.getSucesso()) {
+            return ResponseEntity.ok().body(mensagemDTO);
+        }
+        return ResponseEntity.status(404).body(mensagemDTO);
+    }
 }

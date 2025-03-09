@@ -1,14 +1,12 @@
 package com.senai.userapiv2.services;
 
-import com.senai.userapiv2.dtos.MensagemDTO;
-import com.senai.userapiv2.dtos.RequisicaoDTO;
-import com.senai.userapiv2.dtos.ResponseDTO;
-import com.senai.userapiv2.dtos.UsuarioDTO;
+import com.senai.userapiv2.dtos.*;
 import com.senai.userapiv2.models.UsuarioModel;
 import com.senai.userapiv2.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.swing.text.html.Option;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -91,6 +89,46 @@ public class UsuarioService {
         repository.save(usuarioModel);
         mensagemDTO.setMensagem("Usuário atualizado com sucesso!");
         mensagemDTO.setSucesso(true);
+
+        return mensagemDTO;
+    }
+
+    public MensagemDTO deletarUsuario(Long id) {
+        MensagemDTO mensagemDTO = new MensagemDTO();
+
+        Optional<UsuarioModel> usuarioModelIdPesquisado = repository.findById(id);
+
+        if(usuarioModelIdPesquisado.isEmpty()) {
+            mensagemDTO.setSucesso(false);
+            mensagemDTO.setMensagem("[ERRO] Usuário não encontrado");
+            return mensagemDTO;
+        }
+
+        UsuarioModel usuarioModel = usuarioModelIdPesquisado.get();
+        repository.delete(usuarioModel);
+
+        mensagemDTO.setMensagem("Usuário excluído com sucesso!");
+        mensagemDTO.setSucesso(true);
+
+        return mensagemDTO;
+    }
+
+    public MensagemDTO autenticarUsuario(AutenticacaoDTO autenticacaoDTO) {
+        MensagemDTO mensagemDTO = new MensagemDTO();
+
+        List<UsuarioModel> listaUsuariosModel = repository.findAll();
+
+        for(UsuarioModel usuarioModel : listaUsuariosModel) {
+            if(usuarioModel.getLogin().equals(autenticacaoDTO.getLogin()) && usuarioModel.getSenha().equals(autenticacaoDTO.getSenha())) {
+                mensagemDTO.setMensagem("Usuário autenticado com sucesso!");
+                mensagemDTO.setSucesso(true);
+                return mensagemDTO;
+            }
+            mensagemDTO.setMensagem("[ERRO] Erro ao realizar autenticação do usuário. Login ou senha não incorretos ou inexistentes.");
+            mensagemDTO.setSucesso(false);
+            return mensagemDTO;
+        }
+
 
         return mensagemDTO;
     }
