@@ -10,11 +10,11 @@ public class UserApiV2Application {
 	public static void main(String[] args) {
 		SpringApplication.run(UserApiV2Application.class, args);
 
-		UsuarioModel usuarioModel = new UsuarioModel(1L,"Camila", "alves", "123");
-		System.out.println(usuarioModel.getId());
-		System.out.println(usuarioModel.getNome());
-		System.out.println(usuarioModel.getLogin());
-		System.out.println(usuarioModel.getSenha());
+//		UsuarioModel usuarioModel = new UsuarioModel(1L,"Camila", "alves", "123");
+//		System.out.println(usuarioModel.getId());
+//		System.out.println(usuarioModel.getNome());
+//		System.out.println(usuarioModel.getLogin());
+//		System.out.println(usuarioModel.getSenha());
 	}
 
 }
