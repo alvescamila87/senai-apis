@@ -1,0 +1,163 @@
+{
+	"info": {
+		"_postman_id": "bd002969-a9ea-4cc0-8c64-19de9b8ff03a",
+		"name": "SENAI - Spring",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24836775"
+	},
+	"item": [
+		{
+			"name": "auth user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"zebe@gmail.com\",\r\n    \"senha\": \"123AEIOU\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Madalena Abraão 2\",\r\n    \"login\": \"mada2@gmail.com\",\r\n    \"senha\": \"123AEIOU\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/crud/usuario",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"crud",
+						"usuario"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/crud/usuarios",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"crud",
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/crud/usuario/3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"crud",
+						"usuario",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update user by id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"nome\": \"Madalena Abraão 3\",\r\n        \"login\": \"mada2@gmail.com\",\r\n        \"senha\": \"123AEIOU\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/crud/usuario/5",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"crud",
+						"usuario",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete user by id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Lorena Abraão\",\r\n    \"login\": \"loren@gmail.com\",\r\n    \"senha\": \"123AEIOU\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/crud/usuario/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"crud",
+						"usuario",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

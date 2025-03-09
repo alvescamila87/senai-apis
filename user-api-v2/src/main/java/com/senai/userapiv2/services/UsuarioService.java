@@ -19,8 +19,12 @@ public class UsuarioService {
 
     public MensagemDTO adicionarUsuario(RequisicaoDTO requisicaoDTO) {
         MensagemDTO mensagemDTO = new MensagemDTO();
-        mensagemDTO.setMensagem("[ERRO] Erro ao cadastrar usuário...");
-        mensagemDTO.setSucesso(false);
+
+        if(validacaoLoginDuplicado(requisicaoDTO)) {
+            mensagemDTO.setMensagem("[ERRO] Login já cadastrado. Tente outro...");
+            mensagemDTO.setSucesso(false);
+            return mensagemDTO;
+        }
 
         UsuarioModel usuarioModel = new UsuarioModel();
         usuarioModel.setNome(requisicaoDTO.getNome());
@@ -82,6 +86,13 @@ public class UsuarioService {
         }
 
         UsuarioModel usuarioModel = usuarioModelIdPesquisado.get();
+
+        if(!usuarioModel.getLogin().equals(requisicaoDTO.getLogin()) && validacaoLoginDuplicado(requisicaoDTO)) {
+            mensagemDTO.setMensagem("[ERRO] Login já cadastrado. Tente outro...");
+            mensagemDTO.setSucesso(false);
+            return mensagemDTO;
+        }
+
         usuarioModel.setNome(requisicaoDTO.getNome());
         usuarioModel.setLogin(requisicaoDTO.getLogin());
         usuarioModel.setSenha(requisicaoDTO.getSenha());
@@ -131,5 +142,16 @@ public class UsuarioService {
 
 
         return mensagemDTO;
+    }
+
+    private boolean validacaoLoginDuplicado(RequisicaoDTO requisicaoDTO) {
+        List<UsuarioModel> listaUsuariosModel = repository.findAll();
+
+        for(UsuarioModel usuarioModel : listaUsuariosModel) {
+            if(requisicaoDTO.getLogin().equals(usuarioModel.getLogin())) {
+                return true;
+            }
+        }
+        return false;
     }
 }
