@@ -56,30 +56,68 @@ public class Retangulo {
         return 2 * (altura + largura);
     }
 
-    public Double verificarMaiorArea() {
-        Double retanguloMaiorArea = Double.MIN_VALUE;
+//    public Double verificarMaiorArea() {
+//        Double retanguloMaiorArea = Double.MIN_VALUE;
+//
+//        for(Retangulo retangulo : listaRetangulos) {
+//            Double resultado = retangulo.calcularArea();
+//            if(resultado > retanguloMaiorArea) {
+//                retanguloMaiorArea = resultado;
+//            }
+//        }
+//        System.out.println("Retângulo com maior área: " + retanguloMaiorArea);
+//        return retanguloMaiorArea;
+//    }
+//
+//    public Double verificarMaiorPerimetro() {
+//        Double retanguloMaiorPerimetro = Double.MIN_VALUE;
+//
+//        for(Retangulo retangulo : listaRetangulos) {
+//            Double resultado = retangulo.calcularPerimetro();
+//            if(resultado > retanguloMaiorPerimetro) {
+//                retanguloMaiorPerimetro = resultado;
+//            }
+//        }
+//        System.out.println("Retângulo com maior perímetro: " + retanguloMaiorPerimetro);
+//        return retanguloMaiorPerimetro;
+//    }
+
+    public static Retangulo maiorArea() {
+        if(listaRetangulos.isEmpty()) {
+            throw new IllegalArgumentException("Nenhum retângulo na lista.");
+        }
+
+        Retangulo maiorRetangulo = listaRetangulos.get(0);
 
         for(Retangulo retangulo : listaRetangulos) {
-            Double resultado = retangulo.calcularArea();
-            if(resultado > retanguloMaiorArea) {
-                retanguloMaiorArea = resultado;
+            if(retangulo.calcularArea() > maiorRetangulo.calcularArea()) {
+                maiorRetangulo = retangulo;
             }
         }
-        System.out.println("Retângulo com maior área: " + retanguloMaiorArea);
-        return retanguloMaiorArea;
+
+        return maiorRetangulo;
     }
 
-    public Double verificarMaiorPerimetro() {
-        Double retanguloMaiorPerimetro = Double.MIN_VALUE;
+    public static Retangulo maiorPerimetro() {
+        if(listaRetangulos.isEmpty()) {
+            throw new IllegalArgumentException("Nenhum retângulo na lista.");
+        }
+
+        Retangulo maiorRetangulo = listaRetangulos.get(0);
 
         for(Retangulo retangulo : listaRetangulos) {
-            Double resultado = retangulo.calcularPerimetro();
-            if(resultado > retanguloMaiorPerimetro) {
-                retanguloMaiorPerimetro = resultado;
+            if(retangulo.calcularPerimetro() > maiorRetangulo.calcularPerimetro()) {
+                maiorRetangulo = retangulo;
             }
         }
-        System.out.println("Retângulo com maior perímetro: " + retanguloMaiorPerimetro);
-        return retanguloMaiorPerimetro;
+
+        return maiorRetangulo;
+    }
+
+    public static void imprimirRetangulos() {
+        for(Retangulo retangulo : listaRetangulos) {
+            System.out.println("Altura: " + retangulo.altura + ", Largura: " + retangulo.largura);
+        }
     }
 
 }
