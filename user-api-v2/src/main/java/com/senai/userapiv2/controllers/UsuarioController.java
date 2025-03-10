@@ -63,4 +63,11 @@ public class UsuarioController {
         }
         return ResponseEntity.status(404).body(mensagemDTO);
     }
+
+    @PostMapping("/usuario2")
+    public ResponseEntity<ResponseDTO> adicionarUsuario2(@RequestBody RequisicaoDTO requisicaoDTO) {
+        ResponseDTO responseDTO = service.adicionarUsuario2(requisicaoDTO);
+
+        return ResponseEntity.ok().body(responseDTO);
+    }
 }
