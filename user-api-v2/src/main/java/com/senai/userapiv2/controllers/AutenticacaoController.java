@@ -26,4 +26,14 @@ public class AutenticacaoController {
         }
         return ResponseEntity.status(401).body(mensagemDTO);
     }
+
+    @PostMapping("/login2")
+    public ResponseEntity<MensagemDTO> autenticarUsuario2(@RequestBody AutenticacaoDTO autenticacaoDTO) {
+        MensagemDTO mensagemDTO = service.autenticarUsuario2(autenticacaoDTO);
+
+        if(mensagemDTO.getSucesso()) {
+            return ResponseEntity.status(201).body(mensagemDTO);
+        }
+        return ResponseEntity.status(401).body(mensagemDTO);
+    }
 }

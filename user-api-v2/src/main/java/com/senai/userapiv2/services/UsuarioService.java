@@ -22,6 +22,7 @@ public class UsuarioService {
         MensagemDTO mensagemDTO = new MensagemDTO();
 
         if(validacaoLoginDuplicado(requisicaoDTO)) {
+        //if(validarLoginDuplicado2(requisicaoDTO)) {
             mensagemDTO.setMensagem("[ERRO] Login já cadastrado. Tente outro...");
             mensagemDTO.setSucesso(false);
             return mensagemDTO;
@@ -89,6 +90,8 @@ public class UsuarioService {
         UsuarioModel usuarioModel = usuarioModelIdPesquisado.get();
 
         if(!usuarioModel.getLogin().equals(requisicaoDTO.getLogin()) && validacaoLoginDuplicado(requisicaoDTO)) {
+        //if(!usuarioModel.getLogin().equals(requisicaoDTO.getLogin()) && validarLoginDuplicado2(requisicaoDTO)) {
+
             mensagemDTO.setMensagem("[ERRO] Login já cadastrado. Tente outro...");
             mensagemDTO.setSucesso(false);
             return mensagemDTO;
@@ -145,6 +148,22 @@ public class UsuarioService {
         return mensagemDTO;
     }
 
+    public MensagemDTO autenticarUsuario2(AutenticacaoDTO autenticacaoDTO) {
+        MensagemDTO mensagemDTO = new MensagemDTO();
+        mensagemDTO.setMensagem("[ERRO] Erro ao realizar autenticação do usuário. Login ou senha não incorretos ou inexistentes.");
+        mensagemDTO.setSucesso(false);
+
+        Optional<UsuarioModel> usuarioModelPesquisado = repository.findByLogin(autenticacaoDTO.getLogin());
+
+        if(usuarioModelPesquisado.isPresent() && usuarioModelPesquisado.get().getSenha().equals(autenticacaoDTO.getSenha())) {
+            mensagemDTO.setMensagem("Usuário autenticado com sucesso!");
+            mensagemDTO.setSucesso(true);
+            return mensagemDTO;
+        }
+
+        return mensagemDTO;
+    }
+
     private boolean validacaoLoginDuplicado(RequisicaoDTO requisicaoDTO) {
         List<UsuarioModel> listaUsuariosModel = repository.findAll();
 
@@ -156,7 +175,7 @@ public class UsuarioService {
         return false;
     }
 
-    private boolean validarLoginDuplicado(RequisicaoDTO requisicaoDTO) {
+    private boolean validarLoginDuplicado2(RequisicaoDTO requisicaoDTO) {
         Optional<UsuarioModel> usuarioModelPesquisdo = repository.findByLogin(requisicaoDTO.getLogin());
 
         return usuarioModelPesquisdo.isPresent();
