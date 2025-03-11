@@ -156,6 +156,12 @@ public class UsuarioService {
         return false;
     }
 
+    private boolean validarLoginDuplicado(RequisicaoDTO requisicaoDTO) {
+        Optional<UsuarioModel> usuarioModelPesquisdo = repository.findByLogin(requisicaoDTO.getLogin());
+
+        return usuarioModelPesquisdo.isPresent();
+    }
+
     public ResponseDTO adicionarUsuario2(RequisicaoDTO requisicaoDTO) {
         ResponseDTO responseDTO = new ResponseDTO();
 

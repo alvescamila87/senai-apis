@@ -21,7 +21,7 @@ public class UsuarioModel {
     @Column(name = "nome", nullable = false)
     private String nome;
 
-    @Column(name = "login", nullable = false)
+    @Column(name = "login", unique = true, nullable = false)
     private String login;
 
     @Column(name = "senha", nullable = false)
