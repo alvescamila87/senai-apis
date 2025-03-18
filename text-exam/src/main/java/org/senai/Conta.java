@@ -30,12 +30,8 @@ public class Conta {
     }
 
     public void sacar(Double valor) {
-        if(valor > getSaldo()) {
+        if(valor > getSaldo() || valor < 0) {
             throw  new IllegalArgumentException("Saldo insuficiente");
-        }
-
-        if(valor < 0) {
-            throw  new IllegalArgumentException("Valor negativo não permitido");
         }
 
         setSaldo(getSaldo() - valor);
@@ -48,8 +44,13 @@ public class Conta {
         setSaldo(getSaldo() + valor);
     }
 
-    public void transferir(Conta conta, Double valorTransferencia) {
-        sacar(valorTransferencia);
+    public void transferir(Conta contaTransferencia, Double valorTransferencia) {
+        if(valorTransferencia < 0 || valorTransferencia > saldo) {
+            throw  new IllegalArgumentException("Saldo insuficiente");
+        }
+        setSaldo(getSaldo() - valorTransferencia);
+        Conta conta = contaTransferencia;
+        conta.depositar(valorTransferencia);
     }
 
 
