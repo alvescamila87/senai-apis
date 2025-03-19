@@ -96,4 +96,22 @@ public class ContaTest {
 
     }
 
+    @Test
+    public void test_when_conta_titular_null() {
+        Conta conta1 = new Conta();
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            conta1.setTitular(null);
+        });
+        assertEquals("O nome não pode ser vazio ou nulo", exception.getMessage());
+    }
+
+    @Test
+    public void test_when_conta_titular_string_vazia() {
+        Conta conta1 = new Conta();
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            conta1.setTitular("");
+        });
+        assertEquals("O nome não pode ser vazio ou nulo", exception.getMessage());
+    }
+
 }

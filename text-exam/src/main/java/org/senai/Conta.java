@@ -10,6 +10,9 @@ public class Conta {
     }
 
     public void setTitular(String titular) {
+        if(titular == null || titular.isBlank() || titular.isEmpty()) {
+            throw new IllegalArgumentException("O nome não pode ser vazio ou nulo");
+        }
         this.titular = titular;
     }
 
