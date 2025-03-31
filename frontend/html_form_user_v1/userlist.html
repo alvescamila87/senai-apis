@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style_user_list.css">
+    <title>User list</title>
+</head>
+<body>
+    <h1>Search user by email</h1>
+    <form action="user_view.html">
+        <label for="user_list_filter">Filter</label>
+        <input type="email" name="user_list_filter" id="user_list_filter" placeholder="Type user email">
+    
+        <button type="submit">Search</button>
+    </form>    
+
+    <h2>User list</h2>
+    <table>
+        <thead>
+            <tbody>
+                <tr>
+                    <td>View</td>
+                    <td>Edit</td>
+                    <td>Delete</td>
+                    <td>Name</td>
+                    <td>Email</td>
+                    <td>Cellphone</td>
+                </tr>        
+            </tbody>
+        </thead>
+        <tbody>
+            <tr>
+                <td><button type="submit"><a href="user_view.html">VIEW</a></button></td>
+                <td><button type="submit"><a href="user_edit.html">EDIT</a></button></td>
+                <td><button type="submit"><a href="user_delete.html">DELETE</a></button></td>
+                <td>John Baptize</td>
+                <td>john@gmail.com</td>
+                <td>47-9999-5555</td>
+            </tr>                          
+        </tbody>
+    </table>
+</body>
+</html>
