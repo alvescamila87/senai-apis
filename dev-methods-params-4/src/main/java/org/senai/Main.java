@@ -23,9 +23,9 @@ public class Main {
     }
 
     public static void menorElemento(int[] numeros) {
-        for(int i = 0; i < numeros.length; i++) {
-            if(numeros[i] < menorElemento) {
-                menorElemento = numeros[i];
+        for (int numero : numeros) {
+            if (numero < menorElemento) {
+                menorElemento = numero;
             }
         }
         System.out.println("Menor elemento: " + menorElemento);
