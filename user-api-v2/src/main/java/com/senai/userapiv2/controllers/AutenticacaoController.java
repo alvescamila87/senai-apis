@@ -6,10 +6,8 @@ import com.senai.userapiv2.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/auth")
@@ -29,17 +27,18 @@ public class AutenticacaoController {
     }
 
     @PostMapping("/login2")
-    public ResponseEntity<MensagemDTO> autenticarUsuario2(@RequestBody AutenticacaoDTO autenticacaoDTO) {
-        MensagemDTO mensagemDTO = service.autenticarUsuario2(autenticacaoDTO);
+    public String autenticarUsuario2(@ModelAttribute("loginDTO")  AutenticacaoDTO autenticacaoDTO) {
 
-        if(mensagemDTO.getSucesso()) {
-            return ResponseEntity.status(201).body(mensagemDTO);
-        }
-        return ResponseEntity.status(401).body(mensagemDTO);
+        System.out.println(autenticacaoDTO.getLogin() + " " + autenticacaoDTO.getSenha());
+
+        return "login";
     }
 
     @GetMapping
-    public String obterLogin() {
+    public String obterLogin(Model model) {
+        AutenticacaoDTO autenticacaoDTO = new AutenticacaoDTO();
+        model.addAttribute("loginDTO", autenticacaoDTO);
+
         return "login";
     }
 }
