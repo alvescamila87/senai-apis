@@ -11,7 +11,7 @@
   <div class="container d-flex align-items-center justify-content-center min-vh-100">
     <div class="row w-100 justify-content-center">
       <div class="col-12 col-sm-8 col-md-6 col-lg-4">
-        <form th:action="@{/auth/login}" class="card p-4 shadow" method="get" th:object="${loginDTO}" >
+        <form th:action="@{/auth/login}" class="card p-4 shadow" method="post" th:object="${loginDTO}" >
           <h4 class="text-center mb-4">Login</h4>
 
           <div class="mb-3">

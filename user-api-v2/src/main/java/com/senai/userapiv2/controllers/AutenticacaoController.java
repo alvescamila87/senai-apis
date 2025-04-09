@@ -16,7 +16,7 @@ public class AutenticacaoController {
     @Autowired
     UsuarioService service;
 
-    @PostMapping("/login")
+    @PostMapping("/login1")
     public ResponseEntity<MensagemDTO> autenticarUsuario(@RequestBody AutenticacaoDTO autenticacaoDTO) {
         MensagemDTO mensagemDTO = service.autenticarUsuario(autenticacaoDTO);
 
@@ -31,7 +31,7 @@ public class AutenticacaoController {
 
         System.out.println(autenticacaoDTO.getLogin() + " " + autenticacaoDTO.getSenha());
 
-        return "login";
+        return "redirect:/auth";
     }
 
     @GetMapping
