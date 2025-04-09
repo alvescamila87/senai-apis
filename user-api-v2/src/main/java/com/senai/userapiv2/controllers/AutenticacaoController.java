@@ -10,13 +10,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/auth")
+@RequestMapping("/login")
 public class AutenticacaoController {
 
     @Autowired
     UsuarioService service;
 
-    @PostMapping("/login1")
+    @PostMapping("/old-login")
     public ResponseEntity<MensagemDTO> autenticarUsuario(@RequestBody AutenticacaoDTO autenticacaoDTO) {
         MensagemDTO mensagemDTO = service.autenticarUsuario(autenticacaoDTO);
 
@@ -26,7 +26,7 @@ public class AutenticacaoController {
         return ResponseEntity.status(401).body(mensagemDTO);
     }
 
-    @PostMapping("/login2")
+    @PostMapping
     public String autenticarUsuario2(@ModelAttribute("loginDTO")  AutenticacaoDTO autenticacaoDTO) {
 
         System.out.println(autenticacaoDTO.getLogin() + " " + autenticacaoDTO.getSenha());
