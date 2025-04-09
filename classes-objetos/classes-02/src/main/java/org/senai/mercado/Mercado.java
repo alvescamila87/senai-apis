@@ -58,4 +58,9 @@ public class Mercado {
                 ", precoLaranja=" + precoLaranja +
                 '}';
     }
+
+    public Double calcularReceita(Double preco, Integer quantidadeProduto) {
+        Double resultado = preco * quantidadeProduto;
+        return resultado;
+    }
 }
