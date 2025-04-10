@@ -31,7 +31,7 @@ public class AutenticacaoController {
 
         System.out.println(autenticacaoDTO.getLogin() + " " + autenticacaoDTO.getSenha());
 
-        return "redirect:/auth";
+        return "redirect:/home";
     }
 
     @GetMapping
