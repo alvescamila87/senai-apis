@@ -1,6 +1,8 @@
 package com.senai.userapiv2.controllers;
 
+import com.senai.userapiv2.dtos.MensagemDTO;
 import com.senai.userapiv2.dtos.RequisicaoDTO;
+import com.senai.userapiv2.dtos.ResponseDTO;
 import com.senai.userapiv2.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,6 +31,12 @@ public class CadastroController {
     @PostMapping
     public String cadastrarUsuario(@ModelAttribute ("signup") RequisicaoDTO requisicaoDTO) {
 
+        MensagemDTO mensagemDTO = service.adicionarUsuario(requisicaoDTO);
 
+        if(mensagemDTO.getSucesso()) {
+            return "redirect:/login";
+        }
+
+        return "redirect:/login?error";
     }
 }
