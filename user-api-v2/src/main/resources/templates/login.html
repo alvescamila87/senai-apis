@@ -32,7 +32,17 @@
             <a href="forgottenpassword.html" class="d-block mb-1">Forgot my password</a>
             <a href="signin.html">Don't have an account? Sign up here</a>
           </div>
+
+          <div th:if="${param.error}" class="alert alert-danger" role="alert">
+            <span class="mensagem">Error to log</span>
+          </div>
+
+          <div th:if="${param.logout}" class="alert alert-info" role="alert">
+            <span class="mensagem">Logout has been successfully</span>
+          </div>
+
         </form>
+
       </div>
     </div>
   </div>

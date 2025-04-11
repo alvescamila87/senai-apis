@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 public class HomeController {
 
     @GetMapping
-    public String getHoem() {
+    public String getHome() {
         return "home";
     }
 }

@@ -29,9 +29,13 @@ public class AutenticacaoController {
     @PostMapping
     public String autenticarUsuario2(@ModelAttribute("loginDTO")  AutenticacaoDTO autenticacaoDTO) {
 
-        System.out.println(autenticacaoDTO.getLogin() + " " + autenticacaoDTO.getSenha());
+        MensagemDTO mensagemDTO = service.autenticarUsuario2(autenticacaoDTO);
 
-        return "redirect:/home";
+        if(mensagemDTO.getSucesso()) {
+            return "redirect:/home";
+        }
+
+        return "redirect:/login?error";
     }
 
     @GetMapping
