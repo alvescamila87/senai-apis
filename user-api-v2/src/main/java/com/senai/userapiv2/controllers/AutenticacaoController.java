@@ -16,6 +16,14 @@ public class AutenticacaoController {
     @Autowired
     UsuarioService service;
 
+    @GetMapping
+    public String obterLogin(Model model) {
+        AutenticacaoDTO autenticacaoDTO = new AutenticacaoDTO();
+        model.addAttribute("loginDTO", autenticacaoDTO);
+
+        return "login";
+    }
+
     @PostMapping("/old-login")
     public ResponseEntity<MensagemDTO> autenticarUsuario(@RequestBody AutenticacaoDTO autenticacaoDTO) {
         MensagemDTO mensagemDTO = service.autenticarUsuario(autenticacaoDTO);
@@ -38,11 +46,6 @@ public class AutenticacaoController {
         return "redirect:/login?error";
     }
 
-    @GetMapping
-    public String obterLogin(Model model) {
-        AutenticacaoDTO autenticacaoDTO = new AutenticacaoDTO();
-        model.addAttribute("loginDTO", autenticacaoDTO);
 
-        return "login";
-    }
+
 }

@@ -23,13 +23,13 @@ public class CadastroController {
     public String obterCadastro(Model model) {
 
         RequisicaoDTO signup = new RequisicaoDTO();
-        model.addAttribute("signup", signup);
+        model.addAttribute("signupDTO", signup);
 
         return "signup";
     }
 
     @PostMapping
-    public String cadastrarUsuario(@ModelAttribute ("signup") RequisicaoDTO requisicaoDTO) {
+    public String cadastrarUsuario(@ModelAttribute ("signupDTO") RequisicaoDTO requisicaoDTO) {
 
         MensagemDTO mensagemDTO = service.adicionarUsuario(requisicaoDTO);
 
@@ -37,6 +37,6 @@ public class CadastroController {
             return "redirect:/login";
         }
 
-        return "redirect:/login?error";
+        return "redirect:/signup?error";
     }
 }
