@@ -8,54 +8,80 @@
 </head>
 <body class="bg-light">
 
-  <div class="container py-5">
-    <div class="row justify-content-center">
-      <div class="col-12 col-lg-10">
-
-        <h1 class="mb-4 text-center">Search User by Email</h1>
-
-        <form th:action="@{/userlist}" method="get" class="row g-3 mb-5 justify-content-center">
-          <div class="col-md-6">
-            <label for="user_list_filter" class="form-label">Filter</label>
-            <input type="email" name="user_list_filter" id="user_list_filter" class="form-control" placeholder="Type user email" />
-          </div>
-          <div class="col-md-auto align-self-end">
-            <button type="submit" class="btn btn-primary">Search</button>
-          </div>
-        </form>
-
-        <h2 class="mb-3">User List</h2>
-
-        <div class="table-responsive">
-          <table class="table table-bordered table-hover align-middle text-center">
-            <thead class="table-light">
-              <tr>
-                <th scope="col">Actions</th>
-                <th scope="col">Name</th>
-                <th scope="col">Email</th>
-                <th scope="col">Cellphone</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                    <a href="../../../../../frontend/html_form_user_v1/user_view.html" class="btn btn-outline-info btn-sm me-1">View</a>
-                    <a href="../../../../../frontend/html_form_user_v1/user_edit.html" class="btn btn-outline-warning btn-sm me-1">Edit</a>
-                    <a href="../../../../../frontend/html_form_user_v1/user_delete.html" class="btn btn-outline-danger btn-sm">Delete</a>
-                  </td>
-                <td>John Baptize</td>
-                <td>john@gmail.com</td>
-                <td>(47) 9999-5555</td>
-              </tr>
-              <!-- Você pode repetir essa linha para mais usuários -->
-            </tbody>
-          </table>
-        </div>
-
-      </div>
-    </div>
+<!-- Barra de navegação -->
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Página Inicial</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/usuariolista">Usuário</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Contato</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Cadastre-se</a>
+      </li>
+    </ul>
+    <form class="d-flex ms-auto" action="/logout" method="post">
+      <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Sair</button>
+    </form>
   </div>
+</nav>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Corpo do conteúdo -->
+<div class="container mt-3">
+  <h1 class="mb-4 text-center">Search User by Email</h1>
+
+  <form action="/userlist" method="get" class="row g-3 mb-5 justify-content-center">
+    <div class="col-md-6">
+      <label for="user_list_filter" class="form-label">Filter by Email</label>
+      <input type="email" name="user_list_filter" id="user_list_filter" class="form-control" placeholder="Type user email" />
+    </div>
+    <div class="col-md-auto align-self-end">
+      <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+  </form>
+
+  <h2 class="mb-3">User List</h2>
+
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover align-middle text-center">
+      <thead class="table-light">
+      <tr>
+        <th scope="col">Actions</th>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+      </tr>
+      <tbody>
+      <!-- Exemplo de linha de usuário -->
+      <tr th:each="user : ${listUsersDTO}">
+        <td>
+          <!-- Botões dentro de uma célula, com o layout flexível -->
+          <div class="d-flex justify-content-center gap-2">
+            <a th:href="@{'/viewuser/' + ${user.id}}" class="btn btn-warning">View</a>
+            <a th:href="@{'/updateuser/' + ${user.id}}" class="btn btn-primary">Update</a> <!-- Botão de Edição em azul -->
+            <a th:href="@{'/deleteuser/' + ${user.id}}" class="btn btn-danger">Delete</a>
+          </div>
+        </td>
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.nome}"></td>
+        <td th:text="${user.login}"></td>
+      </tr>
+      </tbody>
+
+    </table>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

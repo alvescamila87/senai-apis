@@ -50,7 +50,7 @@ public class UsuarioService {
             usuarioDTO.setId(usuarioModel.getId());
             usuarioDTO.setNome(usuarioModel.getNome());
             usuarioDTO.setLogin(usuarioModel.getLogin());
-            usuarioDTO.setSenha(usuarioModel.getSenha());
+            //usuarioDTO.setSenha(usuarioModel.getSenha());
 
             listaUsuariosDTO.add(usuarioDTO);
         }
