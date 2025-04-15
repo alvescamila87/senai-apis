@@ -76,6 +76,25 @@ public class UsuarioService {
         return responseDTO;
     }
 
+    public UsuarioCadastroDTO buscarUsuarioPorId2(Long id) {
+        UsuarioCadastroDTO usuarioCadastroDTO = new UsuarioCadastroDTO();
+
+        Optional<UsuarioModel> usuarioModelIdPesquisado = repository.findById(id);
+
+        if(usuarioModelIdPesquisado.isEmpty()) {
+            return usuarioCadastroDTO;
+        }
+
+        UsuarioModel usuarioModel = usuarioModelIdPesquisado.get();
+
+        usuarioCadastroDTO.setId(usuarioModel.getId());
+        usuarioCadastroDTO.setNome(usuarioModel.getNome());
+        usuarioCadastroDTO.setLogin(usuarioModel.getLogin());
+        usuarioCadastroDTO.setSenha(usuarioModel.getSenha());
+
+        return usuarioCadastroDTO;
+    }
+
     public MensagemDTO atualizarUsuario(Long id, RequisicaoDTO requisicaoDTO) {
         MensagemDTO mensagemDTO = new MensagemDTO();
 

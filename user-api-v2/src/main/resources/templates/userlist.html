@@ -11,28 +11,28 @@
 <!-- Barra de navegação -->
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
   <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Página Inicial</a>
+        <a class="nav-link" th:href="@{/home#}">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/usuariolista">Usuário</a>
+        <a class="nav-link" th:href="@{/userlist}">Userlist</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Contato</a>
+        <a class="nav-link" href="#">Contact</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Cadastre-se</a>
+        <a class="nav-link" th:href="@{/signup}">Sign up</a>
       </li>
     </ul>
-    <form class="d-flex ms-auto" action="/logout" method="post">
-      <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Sair</button>
-    </form>
   </div>
+  <form class="form-inline" th:action="@{/logout}" th:method="post">
+    <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Logout</button>
+  </form>
 </nav>
 
 <!-- Corpo do conteúdo -->
@@ -49,7 +49,10 @@
     </div>
   </form>
 
-  <h2 class="mb-3">User List</h2>
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="mb-0">User List</h2>
+    <a th:href="@{~/adduser}" class="btn btn-primary">Add user</a>
+  </div>
 
   <div class="table-responsive">
     <table class="table table-bordered table-hover align-middle text-center">
@@ -66,7 +69,7 @@
         <td>
           <!-- Botões dentro de uma célula, com o layout flexível -->
           <div class="d-flex justify-content-center gap-2">
-            <a th:href="@{'/viewuser/' + ${user.id}}" class="btn btn-warning">View</a>
+            <a th:href="@{'/updateuser/' + ${user.id}}" class="btn btn-warning">View</a>
             <a th:href="@{'/updateuser/' + ${user.id}}" class="btn btn-primary">Update</a> <!-- Botão de Edição em azul -->
             <a th:href="@{'/deleteuser/' + ${user.id}}" class="btn btn-danger">Delete</a>
           </div>
