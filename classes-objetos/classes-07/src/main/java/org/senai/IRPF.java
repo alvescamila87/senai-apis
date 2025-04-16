@@ -39,33 +39,22 @@ public class IRPF {
         this.rendaAnual = rendaAnual;
     }
 
-    public Double calcularImposto(Double rendaAnual) {
+    public Double calcularImposto() {
         Double valorImposto = 0.0;
 
         if(rendaAnual < 0) {
-            return null;
-        }
-
-        if(rendaAnual >= 0 && rendaAnual <= 4_000 ){
             return valorImposto;
+        } else if(rendaAnual <= 4_000 ){
+            return valorImposto;
+        } else if (rendaAnual <= 9000) {
+            valorImposto = rendaAnual * (5.8 /100);
+        } else if(rendaAnual <= 25000) {
+            valorImposto = rendaAnual * (15.0 / 100);
+        } else if(rendaAnual <= 35000) {
+            valorImposto = rendaAnual * (27.5 / 100);
+        } else if (rendaAnual > 35000) {
+            valorImposto = rendaAnual * (30.0 / 100);
         }
-
-        if(rendaAnual > 4_000 && rendaAnual <= 9_000) {
-            return valorImposto = rendaAnual * (5.8 /100);
-        }
-
-        if(rendaAnual > 9_000 && rendaAnual <= 25_000) {
-            return valorImposto = rendaAnual * (15 / 100);
-        }
-
-        if(rendaAnual > 25_000 && rendaAnual <= 35_000) {
-            return valorImposto = rendaAnual * (15 / 100);
-        }
-
-        if(rendaAnual > 35_000) {
-            return valorImposto = rendaAnual * (15 / 100);
-        }
-
         return valorImposto;
     }
 

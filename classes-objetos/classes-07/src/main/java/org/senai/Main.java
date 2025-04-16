@@ -13,7 +13,7 @@ public class Main {
         contribuinte01.setNome("Zebedeu Abraão");
         contribuinte01.setCpf("953.694.630-00");
         contribuinte01.setUf("SC");
-        contribuinte01.setRendaAnual(150_000.98);
+        contribuinte01.setRendaAnual(20000.0);
 
         IRPF contribuinte02 = new IRPF();
         contribuinte02.setNome("Sara Raquel");
@@ -49,12 +49,12 @@ public class Main {
 
         //a) Quem mais paga imposto
         String nomeMaiorPagadorImposto = "";
-        Double maiorPagadorImposto = Double.MIN_VALUE;
+        double maiorPagadorImposto = Double.MIN_VALUE;
 
         for(IRPF contribuinte : listaContribuintes) {
-            //var rendaAnual = contribuinte.getRendaAnual();
 
-            double valorContribuicao = contribuinte.calcularImposto(contribuinte.getRendaAnual());
+            double valorContribuicao = contribuinte.calcularImposto();
+            System.out.println(valorContribuicao);
 
             if(valorContribuicao > maiorPagadorImposto) {
                 maiorPagadorImposto = valorContribuicao;
@@ -63,7 +63,7 @@ public class Main {
 
         }
 
-        System.out.println("O maior pagador de impostos é:  " + nomeMaiorPagadorImposto + " pagando R$ " + maiorPagadorImposto + " por ano.");
+        System.out.println("O maior pagador de imposto é:  " + nomeMaiorPagadorImposto + " pagando R$ " + maiorPagadorImposto + " por ano.");
 
 
 
