@@ -1,6 +1,6 @@
 package com.senai.userapiv2.controllers;
 
-import com.senai.userapiv2.dtos.UsuarioCadastroDTO;
+import com.senai.userapiv2.dtos.ResponseDTO;
 import com.senai.userapiv2.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,18 +10,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/updateuser")
-public class AtualizarUsuarioController {
+@RequestMapping("/viewuser")
+public class VisualizarUsuarioController {
 
     @Autowired
     UsuarioService service;
 
     @GetMapping("/{id}")
-    public String obterAtualizacaoUsuario(Model model, @PathVariable Long id) {
-        UsuarioCadastroDTO usuarioCadastroDTO = service.buscarUsuarioPorId2(id);
+    public String obterVisualizacaoUsuario(Model model, @PathVariable Long id) {
+        ResponseDTO visualizarUsuarioDTO = service.buscarUsuarioPorId(id);
+        model.addAttribute("viewuserDTO", visualizarUsuarioDTO);
 
-        model.addAttribute("updateUserDTO", usuarioCadastroDTO);
-
-        return "updateuser";
+        return "viewuser";
     }
 }

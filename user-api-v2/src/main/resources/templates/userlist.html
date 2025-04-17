@@ -26,7 +26,7 @@
         <a class="nav-link" href="#">Contact</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" th:href="@{/signup}">Sign up</a>
+        <a class="nav-link" th:href="@{/adduser}">Add user</a>
       </li>
     </ul>
   </div>
@@ -69,8 +69,8 @@
         <td>
           <!-- Botões dentro de uma célula, com o layout flexível -->
           <div class="d-flex justify-content-center gap-2">
-            <a th:href="@{'/updateuser/' + ${user.id}}" class="btn btn-warning">View</a>
-            <a th:href="@{'/updateuser/' + ${user.id}}" class="btn btn-primary">Update</a> <!-- Botão de Edição em azul -->
+            <a th:href="@{'/viewuser/' + ${user.id}}" class="btn btn-warning">View</a>
+            <a th:href="@{'/updateuser/' + ${user.id}}" class="btn btn-primary">Update</a>
             <a th:href="@{'/deleteuser/' + ${user.id}}" class="btn btn-danger">Delete</a>
           </div>
         </td>
