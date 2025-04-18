@@ -1,6 +1,6 @@
 package com.senai.userapiv2.controllers;
 
-import com.senai.userapiv2.dtos.ResponseDTO;
+import com.senai.userapiv2.dtos.UsuarioCadastroDTO;
 import com.senai.userapiv2.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,7 +18,7 @@ public class VisualizarUsuarioController {
 
     @GetMapping("/{id}")
     public String obterVisualizacaoUsuario(Model model, @PathVariable Long id) {
-        ResponseDTO visualizarUsuarioDTO = service.buscarUsuarioPorId(id);
+        UsuarioCadastroDTO visualizarUsuarioDTO = service.buscarUsuarioPorId2(id);
         model.addAttribute("viewuserDTO", visualizarUsuarioDTO);
 
         return "viewuser";
