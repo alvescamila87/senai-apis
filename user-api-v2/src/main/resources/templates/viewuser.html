@@ -44,7 +44,6 @@
     </div>
     <div class="card-body">
 
-<!--  <form th:action="@{/viewuser/{id}" class="card p-4 shadow" method="get" th:object="${viewuserDTO}" >-->
   <form th:action="@{/viewuser}" class="card p-4 shadow" method="post" th:object="${viewuserDTO}" >
 
     <div class="mb-3">
@@ -71,15 +70,17 @@
       <button type="submit" class="btn btn-primary" disabled>Save</button>
       <button th:href="@{/userlist}" class="btn btn-secundary">Close</button>
     </div>
-
   </form>
 
     </div>
   </div>
-</div>
+
 
 </div>
 
+</div>
+
+<script src="../static/script.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
