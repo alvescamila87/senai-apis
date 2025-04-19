@@ -71,19 +71,7 @@
           <div class="d-flex justify-content-center gap-2">
             <a th:href="@{'/viewuser/' + ${user.id}}" class="btn btn-warning">View</a>
             <a th:href="@{'/updateuser/' + ${user.id}}" class="btn btn-primary">Update</a>
-<!--            <a th:data-user-id="${user.id}"-->
-<!--               class="btn btn-danger"-->
-<!--               data-bs-toggle="modal"-->
-<!--               data-bs-target="#confirmDeleteModal"-->
-<!--               data-user-id="${user.id}"-->
-<!--               data-user-name="${user.name}">-->
-<!--              Delete-->
-<!--            </a>-->
-            <a th:data-usuario-id="${user.id}"
-                          id="confirmDeleteBtn"
-                           class="btn btn-danger">
-                          Delete
-                        </a>
+            <a th:data-usuario-id="${user.id}" class="delete btn btn-danger">Delete</a>
           </div>
         </td>
         <td th:text="${user.id}"></td>
@@ -96,26 +84,7 @@
   </div>
 </div>
 
-<!-- Modal de confirmação de deleção -->
-<!--<div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteLabel" aria-hidden="true">-->
-<!--  <div class="modal-dialog">-->
-<!--    <div class="modal-content">-->
-<!--      <div class="modal-header">-->
-<!--        <h5 class="modal-title" id="confirmDeleteLabel">Confirm Deletion</h5>-->
-<!--        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
-<!--      </div>-->
-<!--      <div class="modal-body">-->
-<!--        Are you sure you want to delete this user?-->
-<!--      </div>-->
-<!--      <div class="modal-footer">-->
-<!--        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>-->
-<!--        <button id="confirmDeleteBtn" class="btn btn-danger">Delete</button>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
-
-<script src="../static/script.js"></script>
+<script src="/script.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
