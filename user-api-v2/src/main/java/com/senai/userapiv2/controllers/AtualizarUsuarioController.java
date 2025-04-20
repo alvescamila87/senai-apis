@@ -20,6 +20,10 @@ public class AtualizarUsuarioController {
     public String obterAtualizacaoUsuario(Model model, @PathVariable Long id) {
         UsuarioCadastroDTO usuarioCadastroDTO = service.buscarUsuarioPorId2(id);
 
+        if(usuarioCadastroDTO.getId() == 0) {
+            return "redirect:/userlist";
+        }
+
         model.addAttribute("updateUserDTO", usuarioCadastroDTO);
 
         return "updateuser";

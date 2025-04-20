@@ -82,17 +82,10 @@ public class UsuarioService {
         Optional<UsuarioModel> usuarioModelIdPesquisado = repository.findById(id);
 
         if(usuarioModelIdPesquisado.isEmpty()) {
-            return usuarioCadastroDTO;
+            return new UsuarioCadastroDTO(0L);
         }
 
-        UsuarioModel usuarioModel = usuarioModelIdPesquisado.get();
-
-        usuarioCadastroDTO.setId(usuarioModel.getId());
-        usuarioCadastroDTO.setNome(usuarioModel.getNome());
-        usuarioCadastroDTO.setLogin(usuarioModel.getLogin());
-        usuarioCadastroDTO.setSenha(usuarioModel.getSenha());
-
-        return usuarioCadastroDTO;
+        return usuarioCadastroDTO.of(usuarioModelIdPesquisado.get());
     }
 
     public MensagemDTO atualizarUsuario(Long id, RequisicaoDTO requisicaoDTO) {
