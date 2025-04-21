@@ -247,4 +247,16 @@ public class UsuarioService {
         return false;
 
     }
+
+    public UsuarioDTO buscarUsuarioPorId3(Long id) {
+        UsuarioDTO usuarioDTO = new UsuarioDTO();
+
+        Optional<UsuarioModel> usuarioModelIdPesquisado = repository.findById(id);
+
+        if(usuarioModelIdPesquisado.isEmpty()) {
+            return new UsuarioDTO(0L);
+        }
+
+        return usuarioDTO.of(usuarioModelIdPesquisado.get());
+    }
 }
