@@ -209,4 +209,42 @@ public class UsuarioService {
 
         return responseDTO;
     }
+
+    public Boolean atualizarUsuario2(Long id, UsuarioCadastroDTO usuarioCadastroDTO) {
+
+        //--buscar no banco de dados o usuário pelo ID
+        Optional<UsuarioModel> usuarioModelId = repository.findById(id);
+
+        Optional<UsuarioModel> usuarioModelOptionalLogin = repository.findByLogin(usuarioCadastroDTO.getLogin());
+
+        // se existir email cadastrado para outro usuário, retorna falso
+        if(usuarioModelOptionalLogin.isPresent() && !usuarioModelOptionalLogin.get().getId().equals(id)) {
+            return false;
+        }
+
+        //--Se encontrar o usuário
+        if(usuarioModelId.isPresent()) {
+            UsuarioModel usuarioModel = usuarioModelId.get();
+
+            // atualizar caso o usuário tenha informado em tela
+            if(!usuarioCadastroDTO.getNome().isBlank()) {
+                usuarioModel.setNome(usuarioCadastroDTO.getNome());
+            }
+
+            if(!usuarioCadastroDTO.getLogin().isBlank()) {
+                usuarioModel.setLogin(usuarioCadastroDTO.getLogin());
+            }
+
+            if(!usuarioCadastroDTO.getSenha().isBlank()) {
+                usuarioModel.setSenha(usuarioCadastroDTO.getSenha());
+            }
+
+            repository.save(usuarioModel);
+
+            return true;
+        }
+
+        return false;
+
+    }
 }

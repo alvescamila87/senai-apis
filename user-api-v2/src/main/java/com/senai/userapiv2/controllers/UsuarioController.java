@@ -1,19 +1,17 @@
 package com.senai.userapiv2.controllers;
 
-import com.senai.userapiv2.dtos.MensagemDTO;
-import com.senai.userapiv2.dtos.RequisicaoDTO;
-import com.senai.userapiv2.dtos.ResponseDTO;
-import com.senai.userapiv2.dtos.UsuarioDTO;
+import com.senai.userapiv2.dtos.*;
 import com.senai.userapiv2.services.UsuarioService;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/crud")
 public class UsuarioController {
 
@@ -69,5 +67,17 @@ public class UsuarioController {
         ResponseDTO responseDTO = service.adicionarUsuario2(requisicaoDTO);
 
         return ResponseEntity.ok().body(responseDTO);
+    }
+
+    @PostMapping("/usuario2/{id}")
+    public String atualizarUsuario2(@PathVariable Long id, @ModelAttribute("updateUserDTO") UsuarioCadastroDTO usuarioCadastroDTO) {
+
+        Boolean retorno = service.atualizarUsuario2(id, usuarioCadastroDTO);
+
+        if(retorno) {
+            return "redirect:/userlist";
+        }
+
+        return "redirect:/updateuser/" + id.toString() + "?error";
     }
 }
