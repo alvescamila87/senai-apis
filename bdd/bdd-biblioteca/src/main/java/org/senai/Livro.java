@@ -23,4 +23,11 @@ public class Livro {
     public void setEmprestado(Boolean emprestado) {
         this.emprestado = emprestado;
     }
+
+    public void emprestarLivro() {
+            if(emprestado) {
+                throw new IllegalArgumentException("Livro não disponível");
+            }
+            setEmprestado(true);
+    }
 }

@@ -1,8 +1,7 @@
 import org.junit.jupiter.api.Test;
 import org.senai.Livro;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class LivroTest {
 
@@ -15,5 +14,19 @@ public class LivroTest {
         });
 
         assertEquals("Valor inválido", e.getMessage());
+    }
+
+    @Test
+    void quando_livroJaEstiverEmprestado() {
+        Livro livro01 = new Livro();
+        livro01.setEmprestado(true);
+
+
+        IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> {
+            livro01.emprestarLivro();
+        });
+
+        assertEquals("Livro não disponível", e.getMessage());
+
     }
 }
