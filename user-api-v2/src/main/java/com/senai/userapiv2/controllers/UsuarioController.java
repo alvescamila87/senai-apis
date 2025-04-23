@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
+@RestController
 @RequestMapping("/crud")
 public class UsuarioController {
 
