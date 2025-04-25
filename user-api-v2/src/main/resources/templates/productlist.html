@@ -43,6 +43,11 @@
   <h1 class="mb-4 text-center">Product List</h1>
 
   <div class="table-responsive">
+
+    <div th:if="${param.error}" class="alert alert-danger" role="alert">
+      <span class="mensagem">Error to add product</span>
+    </div>
+
     <table class="table table-bordered table-hover align-middle text-center">
       <thead class="table-light">
       <tr>
@@ -70,9 +75,7 @@
       </tbody>
     </table>
 
-    <div th:if="${param.error}" class="alert alert-danger" role="alert">
-      <span class="mensagem">Error to add product</span>
-    </div>
+
 
   </div>
 </div>
