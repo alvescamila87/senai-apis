@@ -36,7 +36,7 @@ public class CadastroProdutoController {
         System.out.println("resultado " + resultado);
 
         if(!resultado) {
-            return "redirect:/addproduct?error";
+            return "redirect:/produtos?error";
         }
 
         return "redirect:/produtos";

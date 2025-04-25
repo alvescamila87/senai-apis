@@ -69,6 +69,11 @@
       </tr>
       </tbody>
     </table>
+
+    <div th:if="${param.error}" class="alert alert-danger" role="alert">
+      <span class="mensagem">Error to add product</span>
+    </div>
+
   </div>
 </div>
 
