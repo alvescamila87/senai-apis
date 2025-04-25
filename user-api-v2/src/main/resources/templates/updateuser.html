@@ -8,7 +8,7 @@
 </head>
 <body class="bg-light">
 
-<!-- Barra de navegação -->
+<!-- Navigation bar -->
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
   <a class="navbar-brand" href="#">Navbar</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,13 +20,17 @@
         <a class="nav-link" th:href="@{/home#}">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" th:href="@{/userlist}">Userlist</a>
+        <a class="nav-link" th:href="@{/home#}">New Client</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Product</a>
+        <a class="nav-link" th:href="@{/userlist}">User List</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" th:href="@{/adduser}">New user</a>
+        <a class="nav-link" th:href="@{/produto}">Add product</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/produtos}">Product list</a>
       </li>
     </ul>
   </div>
@@ -34,6 +38,7 @@
     <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Logout</button>
   </form>
 </nav>
+
 
 <!-- Corpo do conteúdo -->
 <div class="container mt-3">

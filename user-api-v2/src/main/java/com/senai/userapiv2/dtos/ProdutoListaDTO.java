@@ -1,17 +1,27 @@
 package com.senai.userapiv2.dtos;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import com.senai.userapiv2.models.ProdutoModel;
+import lombok.*;
 
 @Getter
 @Setter
-@RequiredArgsConstructor
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class ProdutoListaDTO {
 
     private Long id;
     private String nome;
     private Double preco;
     private Integer quantidadeEstoque;
+
+    public static ProdutoListaDTO of(ProdutoModel model) {
+        return ProdutoListaDTO
+                .builder()
+                .id(model.getId())
+                .nome(model.getNome())
+                .preco(model.getPreco())
+                .quantidadeEstoque(model.getQuantidadeEstoque())
+                .build();
+    }
 }

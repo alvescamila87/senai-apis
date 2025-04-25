@@ -1,13 +1,13 @@
 package com.senai.userapiv2.dtos;
 
 import com.senai.userapiv2.models.ProdutoModel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class ProdutoResponseDTO {
 
     private Long id;

@@ -30,8 +30,7 @@ public class ProdutoModel {
     private Integer quantidadeEstoque;
 
 
-    public ProdutoModel(Long id, String nome, String descricao, Double preco, Integer quantidadeEstoque) {
-        setId(id);
+    public ProdutoModel(String nome, String descricao, Double preco, Integer quantidadeEstoque) {
         setNome(nome);
         setDescricao(descricao);
         setPreco(preco);
