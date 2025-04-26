@@ -45,7 +45,12 @@
       <h5>Add product</h5>
     </div>
     <div class="card-body">
-      <form th:action="@{/produto}" method="post" th:object="${produtoRequestDTO}">
+      <form th:action="@{'/update-product/' + ${updateProductDTO.id}}" method="post" th:object="${updateProductDTO}">
+
+      <div class="mb-3">
+        <label for="product_id" class="form-label">ID</label>
+        <input th:field="*{id}" type="text" class="form-control" id="product_id" name="product_id" disabled />
+      </div>
 
         <div class="mb-3">
           <label for="product_name" class="form-label">Product name</label>
@@ -72,12 +77,9 @@
           <a th:href="@{/produtos}" class="btn btn-secondary ms-2">Cancel</a>
         </div>
 
+        <!-- url passando parametro -> "localhost:8080/login?erro"  -->
         <div th:if="${param.error}" class="alert alert-danger" role="alert">
-          <span class="mensagem">Error to update product</span>
-        </div>
-
-        <div th:if="${param.success}" class="alert alert-info" role="alert">
-          <span class="mensagem">Product has been updated successfully</span>
+          <span class="mensagem">Error to update product data</span>
         </div>
 
       </form>

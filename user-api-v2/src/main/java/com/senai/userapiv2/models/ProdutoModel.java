@@ -1,15 +1,13 @@
 package com.senai.userapiv2.models;
 
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Table(name = "produto")
 @Getter
 @Setter
+@AllArgsConstructor
 @NoArgsConstructor
 public class ProdutoModel {
 
@@ -30,24 +28,24 @@ public class ProdutoModel {
     private Integer quantidadeEstoque;
 
 
-    public ProdutoModel(String nome, String descricao, Double preco, Integer quantidadeEstoque) {
-        setNome(nome);
-        setDescricao(descricao);
-        setPreco(preco);
-        setQuantidadeEstoque(quantidadeEstoque);
-    }
-
-    public void setPreco(Double preco) {
-        if(preco < 0.0) {
-            throw new IllegalArgumentException("Preço não pode ser negativo");
-        }
-        this.preco = preco;
-    }
-
-    public void setQuantidadeEstoque(Integer quantidadeEstoque) {
-        if(quantidadeEstoque < 0) {
-            throw new IllegalArgumentException("Quantidade em estoque não pode ser valor negativo");
-        }
-        this.quantidadeEstoque = quantidadeEstoque;
-    }
+//    public ProdutoModel(String nome, String descricao, Double preco, Integer quantidadeEstoque) {
+//        setNome(nome);
+//        setDescricao(descricao);
+//        setPreco(preco);
+//        setQuantidadeEstoque(quantidadeEstoque);
+//    }
+//
+//    public void setPreco(Double preco) {
+//        if(preco < 0.0) {
+//            throw new IllegalArgumentException("Preço não pode ser negativo");
+//        }
+//        this.preco = preco;
+//    }
+//
+//    public void setQuantidadeEstoque(Integer quantidadeEstoque) {
+//        if(quantidadeEstoque < 0) {
+//            throw new IllegalArgumentException("Quantidade em estoque não pode ser valor negativo");
+//        }
+//        this.quantidadeEstoque = quantidadeEstoque;
+//    }
 }

@@ -249,7 +249,6 @@ public class UsuarioService {
     }
 
     public UsuarioDTO buscarUsuarioPorId3(Long id) {
-        UsuarioDTO usuarioDTO = new UsuarioDTO();
 
         Optional<UsuarioModel> usuarioModelIdPesquisado = repository.findById(id);
 
@@ -257,6 +256,6 @@ public class UsuarioService {
             return new UsuarioDTO(0L);
         }
 
-        return usuarioDTO.of(usuarioModelIdPesquisado.get());
+        return UsuarioDTO.of(usuarioModelIdPesquisado.get());
     }
 }

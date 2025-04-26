@@ -21,7 +21,7 @@ public class UsuarioDTO {
         this.id = id;
     }
 
-    public UsuarioDTO of(UsuarioModel model) {
+    public static UsuarioDTO of(UsuarioModel model) {
         UsuarioDTO usuarioDTO = new UsuarioDTO();
         usuarioDTO.setId(model.getId());
         usuarioDTO.setNome(model.getNome());

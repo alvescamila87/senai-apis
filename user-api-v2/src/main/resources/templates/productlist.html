@@ -62,8 +62,8 @@
       <tr th:each="product : ${produtoListaDTO}" data-produto-id="${product.id}">
         <td>
           <div class="d-flex justify-content-center gap-2">
-            <a th:href="@{'/produtos/view/' + ${product.id}}" class="btn btn-warning">View</a>
-            <a th:href="@{'/produtos/edit/' + ${product.id}}" class="btn btn-primary">Update</a>
+            <a th:href="@{'/produtos/' + ${product.id}}" class="btn btn-warning">View</a>
+            <a th:href="@{'/update-product/' + ${product.id}}" class="btn btn-primary">Update</a>
             <a th:data-produto-id="${product.id}" class="delete btn btn-danger">Delete</a>
           </div>
         </td>
@@ -74,8 +74,6 @@
       </tr>
       </tbody>
     </table>
-
-
 
   </div>
 </div>

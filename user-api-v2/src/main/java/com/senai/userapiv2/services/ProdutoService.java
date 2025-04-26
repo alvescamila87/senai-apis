@@ -2,13 +2,12 @@ package com.senai.userapiv2.services;
 
 import com.senai.userapiv2.dtos.ProdutoListaDTO;
 import com.senai.userapiv2.dtos.ProdutoRequestDTO;
-import com.senai.userapiv2.dtos.ProdutoResponseDTO;
+import com.senai.userapiv2.dtos.ProdutoDTO;
 import com.senai.userapiv2.models.ProdutoModel;
 import com.senai.userapiv2.repositories.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.print.DocFlavor;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -47,6 +46,17 @@ public class ProdutoService {
 
     }
 
+    public ProdutoDTO buscarProdutoPorId(Long id) {
+
+        Optional<ProdutoModel> produtoModel = repository.findById(id);
+
+        if(produtoModel.isEmpty()) {
+            return new ProdutoDTO();
+        }
+
+        return ProdutoDTO.of(produtoModel.get());
+    }
+
     public Boolean cadastrarProduto(ProdutoRequestDTO produtoRequestDTO) {
 
         Boolean resultado = validaDuplicidadeNomeProduto(produtoRequestDTO.getNome());
@@ -66,7 +76,28 @@ public class ProdutoService {
         return true;
     }
 
-    public Boolean validaDuplicidadeNomeProduto(String nomeProduto) {
+    public Boolean atualizarProduto(Long id, ProdutoDTO produtoDTO) {
+
+        Optional<ProdutoModel> produtoModel = repository.findById(id);
+
+        if(produtoModel.isEmpty()) {
+            return false;
+        }
+
+        ProdutoModel atualizarProdutoModel = produtoModel.get();
+
+        atualizarProdutoModel.setId(produtoDTO.getId());
+        atualizarProdutoModel.setNome(produtoDTO.getNome());
+        atualizarProdutoModel.setDescricao(produtoDTO.getDescricao());
+        atualizarProdutoModel.setPreco(produtoDTO.getPreco());
+        atualizarProdutoModel.setQuantidadeEstoque(produtoDTO.getQuantidadeEstoque());
+
+        repository.save(atualizarProdutoModel);
+
+        return true;
+    }
+
+    protected Boolean validaDuplicidadeNomeProduto(String nomeProduto) {
 
         Optional<ProdutoModel> produtoModel = repository.findByNome(nomeProduto);
 
