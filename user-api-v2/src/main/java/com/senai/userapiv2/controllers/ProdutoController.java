@@ -1,10 +1,12 @@
 package com.senai.userapiv2.controllers;
 
+import com.senai.userapiv2.dtos.MensagemDTO;
 import com.senai.userapiv2.dtos.ProdutoListaDTO;
 import com.senai.userapiv2.dtos.ProdutoRequestDTO;
 import com.senai.userapiv2.dtos.ProdutoDTO;
 import com.senai.userapiv2.services.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,8 +30,19 @@ public class ProdutoController {
     }
 
     @PutMapping("/{id}")
-    public Boolean atualizarProdu(@PathVariable Long id, @RequestBody ProdutoDTO produtoDTO) {
+    public Boolean atualizarProduto(@PathVariable Long id, @RequestBody ProdutoDTO produtoDTO) {
         return service.atualizarProduto(id, produtoDTO);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<MensagemDTO> deletarProduto(@PathVariable Long id) {
+        MensagemDTO mensagemDTO = service.deletarProduto(id);
+
+        if(!mensagemDTO.getSucesso()) {
+            return ResponseEntity.status(404).body(mensagemDTO);
+        }
+
+        return ResponseEntity.ok().body(mensagemDTO);
     }
 
 }

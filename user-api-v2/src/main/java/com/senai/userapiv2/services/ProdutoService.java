@@ -1,5 +1,6 @@
 package com.senai.userapiv2.services;
 
+import com.senai.userapiv2.dtos.MensagemDTO;
 import com.senai.userapiv2.dtos.ProdutoListaDTO;
 import com.senai.userapiv2.dtos.ProdutoRequestDTO;
 import com.senai.userapiv2.dtos.ProdutoDTO;
@@ -95,6 +96,23 @@ public class ProdutoService {
         repository.save(atualizarProdutoModel);
 
         return true;
+    }
+
+    public MensagemDTO deletarProduto(Long id) {
+        MensagemDTO mensagemDTO = new MensagemDTO();
+
+        Optional<ProdutoModel> produtoModel = repository.findById(id);
+
+        if(produtoModel.isEmpty()) {
+            mensagemDTO.setSucesso(false);
+            mensagemDTO.setMensagem("Product not found");
+            return mensagemDTO;
+        }
+
+        repository.delete(produtoModel.get());
+        mensagemDTO.setSucesso(true);
+        mensagemDTO.setMensagem("Product has been removed successfully");
+        return mensagemDTO;
     }
 
     protected Boolean validaDuplicidadeNomeProduto(String nomeProduto) {

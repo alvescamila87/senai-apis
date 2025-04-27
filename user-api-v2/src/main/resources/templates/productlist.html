@@ -59,12 +59,12 @@
       </tr>
       </thead>
       <tbody>
-      <tr th:each="product : ${produtoListaDTO}" data-produto-id="${product.id}">
+      <tr th:each="product : ${produtoListaDTO}" data-product-id="${product.id}">
         <td>
           <div class="d-flex justify-content-center gap-2">
             <a th:href="@{'/view-product/' + ${product.id}}" class="btn btn-warning">View</a>
             <a th:href="@{'/update-product/' + ${product.id}}" class="btn btn-primary">Update</a>
-            <a th:data-produto-id="${product.id}" class="delete btn btn-danger">Delete</a>
+            <a th:data-product-id="${product.id}" class="delete-product btn btn-danger">Delete</a>
           </div>
         </td>
         <td th:text="${product.id}"></td>
