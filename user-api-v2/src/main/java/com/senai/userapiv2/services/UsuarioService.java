@@ -1,7 +1,7 @@
 package com.senai.userapiv2.services;
 
-import com.senai.userapiv2.dtos.commons.AutenticacaoDTO;
-import com.senai.userapiv2.dtos.commons.MensagemDTO;
+import com.senai.userapiv2.dtos.common.AutenticacaoDTO;
+import com.senai.userapiv2.dtos.common.MensagemDTO;
 import com.senai.userapiv2.dtos.usuario.RequisicaoDTO;
 import com.senai.userapiv2.dtos.usuario.ResponseDTO;
 import com.senai.userapiv2.dtos.usuario.UsuarioCadastroDTO;

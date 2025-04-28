@@ -1,4 +1,4 @@
-package com.senai.userapiv2.dtos.commons;
+package com.senai.userapiv2.dtos.common;
 
 import lombok.Getter;
 import lombok.Setter;
