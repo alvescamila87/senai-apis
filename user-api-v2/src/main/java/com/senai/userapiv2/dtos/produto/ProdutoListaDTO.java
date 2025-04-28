@@ -1,4 +1,4 @@
-package com.senai.userapiv2.dtos;
+package com.senai.userapiv2.dtos.produto;
 
 import com.senai.userapiv2.models.ProdutoModel;
 import lombok.*;
@@ -8,17 +8,15 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
-public class ProdutoDTO {
+public class ProdutoListaDTO {
 
     private Long id;
     private String nome;
-    private String descricao;
     private Double preco;
     private Integer quantidadeEstoque;
 
-    public static ProdutoDTO of(ProdutoModel model) {
-        return ProdutoDTO
+    public static ProdutoListaDTO of(ProdutoModel model) {
+        return ProdutoListaDTO
                 .builder()
                 .id(model.getId())
                 .nome(model.getNome())

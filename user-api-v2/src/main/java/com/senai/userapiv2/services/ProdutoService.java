@@ -1,9 +1,8 @@
 package com.senai.userapiv2.services;
 
-import com.senai.userapiv2.dtos.MensagemDTO;
-import com.senai.userapiv2.dtos.ProdutoListaDTO;
-import com.senai.userapiv2.dtos.ProdutoRequestDTO;
-import com.senai.userapiv2.dtos.ProdutoDTO;
+import com.senai.userapiv2.dtos.produto.ProdutoListaDTO;
+import com.senai.userapiv2.dtos.produto.ProdutoRequestDTO;
+import com.senai.userapiv2.dtos.produto.ProdutoDTO;
 import com.senai.userapiv2.models.ProdutoModel;
 import com.senai.userapiv2.repositories.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -98,22 +97,35 @@ public class ProdutoService {
         return true;
     }
 
-    public MensagemDTO deletarProduto(Long id) {
-        MensagemDTO mensagemDTO = new MensagemDTO();
+//    public MensagemDTO deletarProduto(Long id) {
+//        MensagemDTO mensagemDTO = new MensagemDTO();
+//
+//        Optional<ProdutoModel> produtoModel = repository.findById(id);
+//
+//        if(produtoModel.isEmpty()) {
+//            mensagemDTO.setSucesso(false);
+//            mensagemDTO.setMensagem("Product not found");
+//            return mensagemDTO;
+//        }
+//
+//        repository.delete(produtoModel.get());
+//        mensagemDTO.setSucesso(true);
+//        mensagemDTO.setMensagem("Product has been removed successfully");
+//        return mensagemDTO;
+//    }
+
+    public void deletarProduto(Long id) {
 
         Optional<ProdutoModel> produtoModel = repository.findById(id);
 
         if(produtoModel.isEmpty()) {
-            mensagemDTO.setSucesso(false);
-            mensagemDTO.setMensagem("Product not found");
-            return mensagemDTO;
+            return;
         }
 
         repository.delete(produtoModel.get());
-        mensagemDTO.setSucesso(true);
-        mensagemDTO.setMensagem("Product has been removed successfully");
-        return mensagemDTO;
     }
+
+
 
     protected Boolean validaDuplicidadeNomeProduto(String nomeProduto) {
 

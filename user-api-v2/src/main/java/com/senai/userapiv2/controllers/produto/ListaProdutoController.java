@@ -1,7 +1,6 @@
-package com.senai.userapiv2.controllers;
+package com.senai.userapiv2.controllers.produto;
 
-import com.senai.userapiv2.dtos.ProdutoListaDTO;
-import com.senai.userapiv2.dtos.UsuarioDTO;
+import com.senai.userapiv2.dtos.produto.ProdutoListaDTO;
 import com.senai.userapiv2.services.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

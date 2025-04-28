@@ -1,4 +1,4 @@
-package com.senai.userapiv2.dtos;
+package com.senai.userapiv2.dtos.usuario;
 
 import com.senai.userapiv2.models.UsuarioModel;
 import lombok.AllArgsConstructor;

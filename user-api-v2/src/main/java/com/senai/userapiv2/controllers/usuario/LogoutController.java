@@ -1,4 +1,4 @@
-package com.senai.userapiv2.controllers;
+package com.senai.userapiv2.controllers.usuario;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -1,7 +1,7 @@
-package com.senai.userapiv2.controllers;
+package com.senai.userapiv2.controllers.usuario;
 
-import com.senai.userapiv2.dtos.AutenticacaoDTO;
-import com.senai.userapiv2.dtos.MensagemDTO;
+import com.senai.userapiv2.dtos.commons.AutenticacaoDTO;
+import com.senai.userapiv2.dtos.commons.MensagemDTO;
 import com.senai.userapiv2.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

@@ -1,14 +1,16 @@
-package com.senai.userapiv2.controllers;
+package com.senai.userapiv2.controllers.usuario;
 
-import com.senai.userapiv2.dtos.*;
+import com.senai.userapiv2.dtos.commons.MensagemDTO;
+import com.senai.userapiv2.dtos.usuario.RequisicaoDTO;
+import com.senai.userapiv2.dtos.usuario.ResponseDTO;
+import com.senai.userapiv2.dtos.usuario.UsuarioCadastroDTO;
+import com.senai.userapiv2.dtos.usuario.UsuarioDTO;
 import com.senai.userapiv2.services.UsuarioService;
-import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller

@@ -1,6 +1,11 @@
 package com.senai.userapiv2.services;
 
-import com.senai.userapiv2.dtos.*;
+import com.senai.userapiv2.dtos.commons.AutenticacaoDTO;
+import com.senai.userapiv2.dtos.commons.MensagemDTO;
+import com.senai.userapiv2.dtos.usuario.RequisicaoDTO;
+import com.senai.userapiv2.dtos.usuario.ResponseDTO;
+import com.senai.userapiv2.dtos.usuario.UsuarioCadastroDTO;
+import com.senai.userapiv2.dtos.usuario.UsuarioDTO;
 import com.senai.userapiv2.models.UsuarioModel;
 import com.senai.userapiv2.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;

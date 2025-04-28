@@ -1,4 +1,4 @@
-package com.senai.userapiv2.dtos;
+package com.senai.userapiv2.dtos.produto;
 
 import com.senai.userapiv2.models.ProdutoModel;
 import lombok.*;
