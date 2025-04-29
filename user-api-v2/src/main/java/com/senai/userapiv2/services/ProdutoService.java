@@ -24,22 +24,22 @@ public class ProdutoService {
         List<ProdutoModel> listaProdutosModel = repository.findAll();
 
         for(ProdutoModel produtoModel: listaProdutosModel) {
-//            ProdutoListaDTO produtoRequestDTO = new ProdutoListaDTO();
-//            produtoRequestDTO.setId(produtoModel.getId());
-//            produtoRequestDTO.setNome(produtoModel.getDescricao());
-//            produtoRequestDTO.setPreco(produtoModel.getPreco());
-//            produtoRequestDTO.setQuantidadeEstoque(produtoModel.getQuantidadeEstoque());
+//            ProdutoListaDTO produtoListaDTO = new ProdutoListaDTO();
+//            produtoListaDTO.setId(produtoModel.getId());
+//            produtoListaDTO.setNome(produtoModel.getDescricao());
+//            produtoListaDTO.setPreco(produtoModel.getPreco());
+//            produtoListaDTO.setQuantidadeEstoque(produtoModel.getQuantidadeEstoque());
 
-//            listaProdutosDTO.add(produtoRequestDTO);
+//            listaProdutosDTO.add(produtoListaDTO);
 
-            ProdutoListaDTO produtoRequestDTO = ProdutoListaDTO.builder()
+            ProdutoListaDTO produtoDTO = ProdutoListaDTO.builder()
                     .id(produtoModel.getId())
                     .nome(produtoModel.getNome())
                     .preco(produtoModel.getPreco())
                     .quantidadeEstoque(produtoModel.getQuantidadeEstoque())
                     .build();
 
-            listaProdutosDTO.add(produtoRequestDTO);
+            listaProdutosDTO.add(produtoDTO);
         }
 
         return listaProdutosDTO;

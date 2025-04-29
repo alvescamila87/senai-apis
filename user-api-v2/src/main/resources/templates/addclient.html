@@ -20,7 +20,10 @@
         <a class="nav-link" th:href="@{/home#}">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" th:href="@{/home#}">New Client</a>
+        <a class="nav-link" th:href="@{/addclient}">New Client</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/clientlist}">Client list</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" th:href="@{/userlist}">User List</a>
@@ -45,39 +48,45 @@
       <h5>Add product</h5>
     </div>
     <div class="card-body">
-      <form th:action="@{/produto}" method="post" th:object="${produtoRequestDTO}">
+      <form th:action="@{/addclient}" method="post" th:object="${clienteRequestDTO}">
 
         <div class="mb-3">
-          <label for="product_name" class="form-label">Product name</label>
-          <input th:field="*{nome}" type="text" class="form-control" id="product_name" name="product_name" placeholder="Type the product name" required />
+          <label for="cliente_name" class="form-label">Client name</label>
+          <input th:field="*{nome}" type="text" class="form-control" id="cliente_name" name="cliente_name" placeholder="Type the client's name" required />
         </div>
 
         <div class="mb-3">
-          <label for="product_description" class="form-label">Product description</label>
-          <textarea th:field="*{descricao}" class="form-control" id="product_description" name="product_description" rows="3" placeholder="Type the description product"></textarea>
+          <label for="cliente_cpf" class="form-label">CPF number</label>
+          <input th:field="*{cpf}" type="text" class="form-control" id="cliente_cpf" name="cliente_cpf" placeholder="000.000.000-00" required />
         </div>
 
         <div class="mb-3">
-          <label for="product_price" class="form-label">Price</label>
-          <input th:field="*{preco}" type="number" step="0.01" class="form-control" id="product_price" name="product_price" placeholder="$0.00" required />
+          <label for="cliente_birthday" class="form-label">Birthday</label>
+          <input th:field="*{dataNascimento}" type="text" class="form-control" id="cliente_birthday" name="cliente_birthday" placeholder="DD/MM/YYYY" required />
         </div>
 
         <div class="mb-3">
-          <label for="product_quantity" class="form-label">Quantity</label>
-          <input th:field="*{quantidadeEstoque}" type="number" class="form-control" id="product_quantity" name="product_quantity" placeholder="0" required />
+          <label for="cliente_telephone" class="form-label">Cellphone</label>
+          <input th:field="*{telefone}" type="telefone" class="form-control" id="cliente_telephone" name="cliente_telephone" placeholder="(00) 00000-0000" required />
         </div>
+
+        <div class="mb-3">
+          <label for="cliente_email" class="form-label">Email</label>
+          <input th:field="*{email}" type="email" class="form-control" id="cliente_email" name="cliente_email" placeholder="email@gmail.com" required />
+        </div>
+
 
         <div class="text-center mt-4">
           <button type="submit" class="btn btn-success">Save</button>
-          <a th:href="@{/produtos}" class="btn btn-secondary ms-2">Cancel</a>
+          <a th:href="@{/clientlist}" class="btn btn-secondary ms-2">Cancel</a>
         </div>
 
         <div th:if="${param.error}" class="alert alert-danger" role="alert">
-          <span class="mensagem">Error to create product</span>
+          <span class="mensagem">Error to add client</span>
         </div>
 
         <div th:if="${param.success}" class="alert alert-info" role="alert">
-          <span class="mensagem">Product has been created successfully</span>
+          <span class="mensagem">Cliente has been created successfully</span>
         </div>
 
       </form>

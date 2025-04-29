@@ -14,24 +14,20 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class ClienteRequestDTO {
 
-    private Long id;
     private String nome;
     private String cpf;
     private LocalDate dataNascimento;
     private String telefone;
     private String email;
-    private Boolean ativo;
 
     public static ClienteRequestDTO of(ClienteModel model) {
         ClienteRequestDTO dto = new ClienteRequestDTO();
 
-        dto.setId(model.getId());
         dto.setNome(model.getNome());
         dto.setCpf(model.getCpf());
         dto.setDataNascimento(model.getDataNascimento());
         dto.setTelefone(model.getTelefone());
         dto.setEmail(model.getEmail());
-        dto.setAtivo(model.getAtivo());
 
         return dto;
     }

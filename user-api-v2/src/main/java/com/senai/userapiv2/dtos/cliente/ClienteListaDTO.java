@@ -16,8 +16,8 @@ public class ClienteListaDTO {
 
     private Long id;
     private String nome;
-    private String cpf;
     private LocalDate dataNascimento;
+    private String email;
     private Boolean ativo;
 
     public static ClienteListaDTO of(ClienteModel model) {
@@ -25,8 +25,8 @@ public class ClienteListaDTO {
 
         dto.setId(model.getId());
         dto.setNome(model.getNome());
-        dto.setCpf(model.getCpf());
         dto.setDataNascimento(model.getDataNascimento());
+        dto.setEmail(model.getEmail());
         dto.setAtivo(model.getAtivo());
 
         return dto;
