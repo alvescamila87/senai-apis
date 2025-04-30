@@ -14,7 +14,7 @@ public class CadastroClienteController {
     @Autowired
     ClienteService service;
 
-
+    @Getmapping
     public String obterCadastroCliente(Model model) {
 
         ClienteRequestDTO clienteRequestDTO = new ClienteRequestDTO();
