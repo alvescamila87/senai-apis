@@ -1,7 +1,6 @@
 package com.senai.userapiv2.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,11 +16,25 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class ClienteModel {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "nome", nullable = false)
     private String nome;
+
+    @Column(name = "cpf", nullable = false, unique = true)
     private String cpf;
+
+    @Column(name = "data_nascimento", nullable = false)
     private LocalDate dataNascimento;
+
+    @Column(name = "telefone")
     private String telefone;
+
+    @Column(name = "email", nullable = false)
     private String email;
+
+    @Column(name = "ativo")
     private Boolean ativo;
 }

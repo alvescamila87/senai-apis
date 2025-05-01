@@ -21,8 +21,8 @@ public class ListaClienteController {
     public String obterListaClientes(Model model) {
 
         List<ClienteListaDTO> listaClienteDTO = service.listarClientes();
-        model.addAttribute("listaClienteDTO", listaClienteDTO);
+        model.addAttribute("clienteListaDTO", listaClienteDTO);
 
-        return "clientelist";
+        return "clientlist";
     }
 }
