@@ -71,8 +71,8 @@
             <a th:data-product-id="${client.id}" class="delete-client btn btn-danger">Delete</a>
           </div>
         </td>
-        <td th:text="${client.ativo}"></td>
         <td th:text="${client.id}"></td>
+        <td th:text="${client.ativo} ? 'Active' : 'Inactive'"></td>
         <td th:text="${client.nome}"></td>
         <td th:text="${client.dataNascimento}"></td>
         <td th:text="${client.email}"></td>

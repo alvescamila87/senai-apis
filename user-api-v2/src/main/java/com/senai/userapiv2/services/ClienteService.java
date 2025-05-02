@@ -1,5 +1,6 @@
 package com.senai.userapiv2.services;
 
+import com.senai.userapiv2.dtos.cliente.ClienteDTO;
 import com.senai.userapiv2.dtos.cliente.ClienteListaDTO;
 import com.senai.userapiv2.dtos.cliente.ClienteRequestDTO;
 import com.senai.userapiv2.models.ClienteModel;
@@ -54,5 +55,18 @@ public class ClienteService {
         }
 
         return false;
+    }
+
+    public ClienteDTO buscarClientePorId(Long id) {
+        ClienteDTO clienteDTO = new ClienteDTO();
+
+        Optional<ClienteModel> clienteModel = repository.findById(id);
+
+        if(clienteModel.isEmpty()) {
+            return new ClienteDTO();
+        }
+
+        return ClienteDTO.of(clienteModel.get());
+
     }
 }

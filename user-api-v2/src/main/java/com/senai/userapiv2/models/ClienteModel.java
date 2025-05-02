@@ -1,5 +1,6 @@
 package com.senai.userapiv2.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,6 +27,7 @@ public class ClienteModel {
     @Column(name = "cpf", nullable = false, unique = true)
     private String cpf;
 
+    @JsonFormat(pattern = "yyyy-MM-dd")
     @Column(name = "data_nascimento", nullable = false)
     private LocalDate dataNascimento;
 

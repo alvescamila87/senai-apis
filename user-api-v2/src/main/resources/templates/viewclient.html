@@ -48,45 +48,53 @@
       <h5>Add product</h5>
     </div>
     <div class="card-body">
-      <form th:action="@{/addclient}" method="post" th:object="${clienteRequestDTO}">
+      <form th:action="@{/view-client}" method="post" th:object="${viewClientDTO}">
+
+        <div class="mb-3">
+          <label for="cliente_id" class="form-label">ID</label>
+          <input th:field="*{id}" type="number" class="form-control" id="cliente_id" name="cliente_id" disabled />
+        </div>
 
         <div class="mb-3">
           <label for="cliente_name" class="form-label">Client name</label>
-          <input th:field="*{nome}" type="text" class="form-control" id="cliente_name" name="cliente_name" placeholder="Type the client's name" required />
+          <input th:field="*{nome}" type="text" class="form-control" id="cliente_name" name="cliente_name" disabled />
         </div>
 
         <div class="mb-3">
           <label for="cliente_cpf" class="form-label">CPF number</label>
-          <input th:field="*{cpf}" type="text" class="form-control" id="cliente_cpf" name="cliente_cpf" placeholder="000.000.000-00" required />
+          <input th:field="*{cpf}" type="text" class="form-control" id="cliente_cpf" name="cliente_cpf" disabled/>
         </div>
 
         <div class="mb-3">
-          <label for="cliente_birthday" class="form-label">Birthday</label>
-          <input th:field="*{dataNascimento}" type="date" class="form-control" id="cliente_birthday" name="cliente_birthday" required />
+<!--          <label for="cliente_birthday" class="form-label">Birthday</label>-->
+<!--          <input th:field="*{dataNascimento}" type="date" class="form-control" id="cliente_birthday" name="cliente_birthday" disabled />-->
+<!--          <span th:text="${#temporals.format(viewClientDTO.dataNascimento, 'dd/MM/yyyy')}"></span>-->
+          <label class="form-label">Birthday</label>
+          <input th:value="${#temporals.format(viewClientDTO.dataNascimento, 'dd/MM/yyyy')}" type="text" class="form-control" disabled>
         </div>
 
         <div class="mb-3">
           <label for="cliente_telephone" class="form-label">Cellphone</label>
-          <input th:field="*{telefone}" type="tel" class="form-control" id="cliente_telephone" name="cliente_telephone" placeholder="(00) 00000-0000" />
+          <input th:field="*{telefone}" type="telefone" class="form-control" id="cliente_telephone" name="cliente_telephone" disabled />
         </div>
 
         <div class="mb-3">
           <label for="cliente_email" class="form-label">Email</label>
-          <input th:field="*{email}" type="email" class="form-control" id="cliente_email" name="cliente_email" placeholder="email@gmail.com" required />
+          <input th:field="*{email}" type="email" class="form-control" id="cliente_email" name="cliente_email" disabled />
         </div>
 
 
         <div class="text-center mt-4">
-          <button type="submit" class="btn btn-success">Save</button>
+          <button type="submit" class="btn btn-success" disabled>Save</button>
           <a th:href="@{/clientlist}" class="btn btn-secondary ms-2">Cancel</a>
         </div>
 
         <div th:if="${param.error}" class="alert alert-danger" role="alert">
-          <span class="mensagem">Error to add client</span>
+          <span class="mensagem">Error to view client</span>
         </div>
 
         <div th:if="${param.success}" class="alert alert-info" role="alert">
-          <span class="mensagem">Cliente has been created successfully</span>
+          <span class="mensagem">Cliente has been viewed successfully</span>
         </div>
 
       </form>
