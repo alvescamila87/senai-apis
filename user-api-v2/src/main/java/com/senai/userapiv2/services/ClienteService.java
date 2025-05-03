@@ -57,6 +57,26 @@ public class ClienteService {
         return false;
     }
 
+    public Boolean atualizaCliente(Long id, ClienteDTO clienteDTO) {
+
+        Optional<ClienteModel> clienteModel = repository.findById(id);
+
+        if(clienteModel.isEmpty()) {
+            return false;
+        }
+
+        ClienteModel atualizarClienteModel = clienteModel.get();
+
+        atualizarClienteModel.setAtivo(clienteDTO.getAtivo());
+        atualizarClienteModel.setNome(clienteDTO.getNome());
+        atualizarClienteModel.setDataNascimento(clienteDTO.getDataNascimento());
+        atualizarClienteModel.setCpf(clienteDTO.getCpf());
+        atualizarClienteModel.setTelefone(clienteDTO.getTelefone());
+        atualizarClienteModel.setEmail(clienteDTO.getEmail());
+
+        return true;
+    }
+
     public ClienteDTO buscarClientePorId(Long id) {
         ClienteDTO clienteDTO = new ClienteDTO();
 
@@ -68,5 +88,16 @@ public class ClienteService {
 
         return ClienteDTO.of(clienteModel.get());
 
+    }
+
+    public void deletarCliente(Long id) {
+        Optional<ClienteModel> clienteModel = repository.findById(id);
+
+        if(clienteModel.isEmpty()) {
+            return;
+        }
+
+        //repository.deleteById(id);
+        repository.delete(clienteModel.get());
     }
 }

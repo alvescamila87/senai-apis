@@ -48,7 +48,7 @@
       <h5>Add product</h5>
     </div>
     <div class="card-body">
-      <form th:action="@{/view-client}" method="post" th:object="${viewClientDTO}">
+      <form th:action="@{/update-client}" method="post" th:object="${updateClientDTO}">
 
         <div class="mb-3">
           <label for="cliente_id" class="form-label">ID</label>
@@ -56,51 +56,54 @@
         </div>
 
         <div class="mb-3">
-          <label class="form-label">Status</label>
-          <input type="text" class="form-control"
-                 th:value="${viewClientDTO.ativo ? 'Ativo' : 'Inativo'}" disabled />
+          <label for="cliente_status" class="form-label">Status</label>
+          <select th:field="*{ativo}" class="form-select" id="cliente_status">
+            <option th:value="true">Ativo</option>
+            <option th:value="false">Inativo</option>
+          </select>
         </div>
 
         <div class="mb-3">
           <label for="cliente_name" class="form-label">Client name</label>
-          <input th:field="*{nome}" type="text" class="form-control" id="cliente_name" name="cliente_name" disabled />
+          <input th:field="*{nome}" type="text" class="form-control" id="cliente_name" name="cliente_name"  />
         </div>
 
         <div class="mb-3">
           <label for="cliente_cpf" class="form-label">CPF number</label>
-          <input th:field="*{cpf}" type="text" class="form-control" id="cliente_cpf" name="cliente_cpf" disabled/>
+          <input th:field="*{cpf}" type="text" class="form-control" id="cliente_cpf" name="cliente_cpf" />
         </div>
 
         <div class="mb-3">
 <!--          <label for="cliente_birthday" class="form-label">Birthday</label>-->
-<!--          <input th:field="*{dataNascimento}" type="date" class="form-control" id="cliente_birthday" name="cliente_birthday" disabled />-->
-<!--          <span th:text="${#temporals.format(viewClientDTO.dataNascimento, 'dd/MM/yyyy')}"></span>-->
+<!--          <input th:field="*{dataNascimento}" type="date" class="form-control" id="cliente_birthday" name="cliente_birthday" />-->
           <label class="form-label">Birthday</label>
-          <input th:value="${#temporals.format(viewClientDTO.dataNascimento, 'dd/MM/yyyy')}" type="text" class="form-control" disabled>
+          <input type="date" class="form-control" th:value="${updateClientDTO.dataNascimento}" />
         </div>
 
         <div class="mb-3">
-          <label for="cliente_telephone" class="form-label">Cellphone</label>
-          <input th:field="*{telefone}" type="tel" class="form-control" id="cliente_telephone" name="cliente_telephone" disabled />
+<!--          <label for="cliente_telephone" class="form-label">Cellphone</label>-->
+<!--          <input th:field="*{telefone}" type="tel" class="form-control" id="cliente_telephone" name="cliente_telephone"  />-->
+          <label class="form-label">Cellphone</label>
+          <input type="tel" class="form-control" th:value="${updateClientDTO.telefone}" />
         </div>
 
         <div class="mb-3">
           <label for="cliente_email" class="form-label">Email</label>
-          <input th:field="*{email}" type="email" class="form-control" id="cliente_email" name="cliente_email" disabled />
+          <input th:field="*{email}" type="email" class="form-control" id="cliente_email" name="cliente_email" />
         </div>
 
 
         <div class="text-center mt-4">
-          <button type="submit" class="btn btn-success" disabled>Save</button>
+          <button type="submit" class="btn btn-success">Save</button>
           <a th:href="@{/clientlist}" class="btn btn-secondary ms-2">Cancel</a>
         </div>
 
         <div th:if="${param.error}" class="alert alert-danger" role="alert">
-          <span class="mensagem">Error to view client</span>
+          <span class="mensagem">Error to update client</span>
         </div>
 
         <div th:if="${param.success}" class="alert alert-info" role="alert">
-          <span class="mensagem">Cliente has been viewed successfully</span>
+          <span class="mensagem">Cliente has been updated successfully</span>
         </div>
 
       </form>
