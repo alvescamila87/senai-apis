@@ -18,7 +18,7 @@ public class ClienteListaDTO {
     private Long id;
     private String nome;
 
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "MM/dd/yyyy")
     private LocalDate dataNascimento;
     private String email;
     private Boolean ativo;

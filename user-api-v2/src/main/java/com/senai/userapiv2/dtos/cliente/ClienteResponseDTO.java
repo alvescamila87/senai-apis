@@ -19,7 +19,7 @@ public class ClienteResponseDTO {
     private String nome;
     private String cpf;
 
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "MM/dd/yyyy")
     private LocalDate dataNascimento;
     private String telefone;
     private String email;

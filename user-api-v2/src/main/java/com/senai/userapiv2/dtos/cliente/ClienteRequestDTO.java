@@ -1,5 +1,6 @@
 package com.senai.userapiv2.dtos.cliente;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.senai.userapiv2.models.ClienteModel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -16,6 +17,8 @@ public class ClienteRequestDTO {
 
     private String nome;
     private String cpf;
+
+    @JsonFormat(pattern = "MM/dd/yyyy")
     private LocalDate dataNascimento;
     private String telefone;
     private String email;

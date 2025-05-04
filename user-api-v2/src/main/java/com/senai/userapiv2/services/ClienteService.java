@@ -8,6 +8,7 @@ import com.senai.userapiv2.repositories.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.beans.Transient;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -73,6 +74,7 @@ public class ClienteService {
         atualizarClienteModel.setCpf(clienteDTO.getCpf());
         atualizarClienteModel.setTelefone(clienteDTO.getTelefone());
         atualizarClienteModel.setEmail(clienteDTO.getEmail());
+
 
         repository.save(atualizarClienteModel);
 
