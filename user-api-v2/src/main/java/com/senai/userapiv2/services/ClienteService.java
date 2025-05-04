@@ -74,6 +74,8 @@ public class ClienteService {
         atualizarClienteModel.setTelefone(clienteDTO.getTelefone());
         atualizarClienteModel.setEmail(clienteDTO.getEmail());
 
+        repository.save(atualizarClienteModel);
+
         return true;
     }
 

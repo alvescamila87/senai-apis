@@ -48,7 +48,7 @@
       <h5>Add product</h5>
     </div>
     <div class="card-body">
-      <form th:action="@{/update-client}" method="post" th:object="${updateClientDTO}">
+      <form th:action="@{'/update-client/' + ${updateClientDTO.id}}" method="post" th:object="${updateClientDTO}">
 
         <div class="mb-3">
           <label for="cliente_id" class="form-label">ID</label>
