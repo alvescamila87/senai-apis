@@ -9,6 +9,7 @@
 </head>
 <body>
 
+<!-- Navigation bar -->
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
   <a class="navbar-brand" href="#">Navbar</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,24 +19,24 @@
     <ul class="navbar-nav">
       <li class="nav-item active">
       <li class="nav-item active">
-        <a class="nav-link" th:href="@{/home}">Pagina Inicial</a>
+        <a class="nav-link" th:href="@{/home}">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" th:href="@{/cadastro}">Novo Usuário</a>
+        <a class="nav-link" th:href="@{/cadastro-usuario}">Novo usuário</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" th:href="@{/produto}">Novo Produto</a>
+        <a class="nav-link" th:href="@{/produto}">Novo produto</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" th:href="@{/lista}">Listar Usuário</a>
+        <a class="nav-link" th:href="@{/lista-usuario}">Listar usuários</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" th:href="@{/listaprodutos}">Listar Produto</a>
+        <a class="nav-link" th:href="@{/lista-produto}">Listar produtos</a>
       </li>
     </ul>
   </div>
   <form class="form-inline" th:action="@{/logout}" th:method="post">
-    <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Sair</button>
+    <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Logout</button>
   </form>
 </nav>
 
@@ -72,7 +73,7 @@
             <tr th:each="usuario : ${consultaUsuarioDto}">
               <td>
                 <div class="d-flex justify-content-center gap-2">
-                  <a th:href="@{'/visualizar-usuario/' + ${usuario.id}}" class="btn btn-primary">Visualizar</a>
+                  <a th:href="@{'/visualizar-usuario/' + ${usuario.id}}" class="btn btn-secondary">Visualizar</a>
                   <a th:href="@{'/atualizar-usuario/' + ${usuario.id}}" class="btn btn-primary">Editar</a>
                   <button th:data-usuario-id="${usuario.id}" class="excluir-usuario btn btn-danger">Excluir</button>
                 </div>
