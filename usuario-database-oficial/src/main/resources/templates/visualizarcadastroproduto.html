@@ -55,26 +55,26 @@
 
                 <div class="mb-3">
                     <label for="produto_nome" class="form-label">Nome</label>
-                    <input th:field="*{nome}" type="text" class="form-control" id="produto_nome" name="nome" placeholder="Nome do produto" required />
+                    <input th:field="*{nome}" type="text" class="form-control" id="produto_nome" name="nome" disabled />
                 </div>
 
                 <div class="mb-3">
                     <label for="produto_descricao" class="form-label">Descrição</label>
-                    <textarea th:field="*{descricao}" class="form-control" id="produto_descricao" name="descricao" rows="3" placeholder="Descrição do produto"></textarea>
+                    <textarea th:field="*{descricao}" class="form-control" id="produto_descricao" name="descricao" rows="3" disabled></textarea>
                 </div>
 
                 <div class="mb-3">
                     <label for="produto_preco" class="form-label">Preço</label>
-                    <input th:field="*{preco}" type="number" step="0.01" class="form-control" id="produto_preco" name="preco" placeholder="R$ 0,00" required />
+                    <input th:field="*{preco}" type="number" step="0.01" class="form-control" id="produto_preco" name="preco" disabled />
                 </div>
 
                 <div class="mb-3">
                     <label for="produto_quantidade" class="form-label">Quantidade em Estoque</label>
-                    <input th:field="*{quantidadeEstoque}" type="number" class="form-control" id="produto_quantidade" name="quantidadeEstoque" placeholder="0" required />
+                    <input th:field="*{quantidadeEstoque}" type="number" class="form-control" id="produto_quantidade" name="quantidadeEstoque" disabled />
                 </div>
 
                 <div class="text-center mt-4">
-                    <button type="submit" class="btn btn-success">Salvar</button>
+                    <button type="submit" class="btn btn-primary" disabled>Salvar</button>
                     <a th:href="@{/lista-produto}" class="btn btn-secondary ms-2">Cancelar</a>
                 </div>
 

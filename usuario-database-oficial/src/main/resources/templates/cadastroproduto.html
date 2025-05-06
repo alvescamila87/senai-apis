@@ -43,10 +43,10 @@
 <div class="container mt-5 d-flex justify-content-center">
     <div class="card shadow w-50">
         <div class="card-header bg-primary text-white text-center">
-            <h5>Cadastrar Novo Produto</h5>
+            <h5>Cadastrar produto</h5>
         </div>
         <div class="card-body">
-            <form th:action="@{/produto}" method="post" th:object="${produtoRequisicaoDto}">
+            <form th:action="@{/cadastro-produto}" method="post" th:object="${produtoRequisicaoDto}">
 
 <!--                <div class="mb-3">-->
 <!--                    <label for="produto_id" class="form-label">ID</label>-->
@@ -74,8 +74,8 @@
                 </div>
 
                 <div class="text-center mt-4">
-                    <button type="submit" class="btn btn-success">Salvar</button>
-                    <a th:href="@{/listaprodutos}" class="btn btn-secondary ms-2">Cancelar</a>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                    <a th:href="@{/lista-produto}" class="btn btn-secondary ms-2">Cancelar</a>
                 </div>
 
                 <div th:if="${param.sucesso}" class="alert alert-info" role="alert">

@@ -32,7 +32,7 @@ public class AtualizarCadastroProdutoController {
             return "redirect:/lista-produto?erro";
         }
 
-        return "redirect:/lista-produto";
+        return "redirect:/lista-produto?sucesso";
     }
 
 
