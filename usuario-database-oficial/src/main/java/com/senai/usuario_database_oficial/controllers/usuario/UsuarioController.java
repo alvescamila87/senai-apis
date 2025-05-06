@@ -1,8 +1,8 @@
 package com.senai.usuario_database_oficial.controllers.usuario;
 
-import com.senai.usuario_database_oficial.dtos.MensagemDto;
-import com.senai.usuario_database_oficial.dtos.RequisicaoDto;
-import com.senai.usuario_database_oficial.dtos.UsuarioAtualizarDto;
+import com.senai.usuario_database_oficial.dtos.commons.MensagemDto;
+import com.senai.usuario_database_oficial.dtos.usuario.RequisicaoUsuarioDto;
+import com.senai.usuario_database_oficial.dtos.usuario.UsuarioAtualizarDto;
 import com.senai.usuario_database_oficial.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +17,7 @@ public class UsuarioController {
     UsuarioService service;
 
     @PostMapping
-    public ResponseEntity<MensagemDto> criarUsuario(@RequestBody RequisicaoDto requisicao){
+    public ResponseEntity<MensagemDto> criarUsuario(@RequestBody RequisicaoUsuarioDto requisicao){
         MensagemDto mensagem = service.adicionarUsuario(requisicao);
 
         if(mensagem.getSucesso()){

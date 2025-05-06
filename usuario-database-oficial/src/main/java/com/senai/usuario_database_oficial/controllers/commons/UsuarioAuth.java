@@ -1,7 +1,7 @@
 package com.senai.usuario_database_oficial.controllers.commons;
 
-import com.senai.usuario_database_oficial.dtos.AutenticarUsuarioDto;
-import com.senai.usuario_database_oficial.dtos.MensagemDto;
+import com.senai.usuario_database_oficial.dtos.commons.AutenticarUsuarioDto;
+import com.senai.usuario_database_oficial.dtos.commons.MensagemDto;
 import com.senai.usuario_database_oficial.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

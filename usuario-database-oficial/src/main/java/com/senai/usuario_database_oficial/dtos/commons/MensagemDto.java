@@ -1,4 +1,4 @@
-package com.senai.usuario_database_oficial.dtos;
+package com.senai.usuario_database_oficial.dtos.commons;
 
 import lombok.Data;
 

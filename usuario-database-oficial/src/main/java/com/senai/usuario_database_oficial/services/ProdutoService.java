@@ -1,8 +1,8 @@
 package com.senai.usuario_database_oficial.services;
 
-import com.senai.usuario_database_oficial.dtos.ProdutoDto;
-import com.senai.usuario_database_oficial.dtos.ProdutoListaDto;
-import com.senai.usuario_database_oficial.dtos.ProdutoRequisicaoDto;
+import com.senai.usuario_database_oficial.dtos.produto.ProdutoDto;
+import com.senai.usuario_database_oficial.dtos.produto.ProdutoListaDto;
+import com.senai.usuario_database_oficial.dtos.produto.ProdutoRequisicaoDto;
 import com.senai.usuario_database_oficial.models.ProdutoModel;
 import com.senai.usuario_database_oficial.repositories.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.senai.usuario_database_oficial.dtos;
+package com.senai.usuario_database_oficial.dtos.usuario;
 
 import com.senai.usuario_database_oficial.models.UsuarioModel;
 import lombok.AllArgsConstructor;

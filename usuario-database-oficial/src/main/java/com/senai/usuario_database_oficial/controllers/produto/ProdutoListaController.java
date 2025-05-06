@@ -1,6 +1,6 @@
 package com.senai.usuario_database_oficial.controllers.produto;
 
-import com.senai.usuario_database_oficial.dtos.ProdutoListaDto;
+import com.senai.usuario_database_oficial.dtos.produto.ProdutoListaDto;
 import com.senai.usuario_database_oficial.services.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping("/listaprodutos")
+@RequestMapping("/lista-produto")
 public class ProdutoListaController {
 
     @Autowired

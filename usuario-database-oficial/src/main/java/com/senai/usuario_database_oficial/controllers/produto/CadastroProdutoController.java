@@ -1,6 +1,6 @@
 package com.senai.usuario_database_oficial.controllers.produto;
 
-import com.senai.usuario_database_oficial.dtos.ProdutoRequisicaoDto;
+import com.senai.usuario_database_oficial.dtos.produto.ProdutoRequisicaoDto;
 import com.senai.usuario_database_oficial.services.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/produto")
+@RequestMapping("/cadastro-produto")
 public class CadastroProdutoController {
 
     @Autowired
@@ -32,10 +32,10 @@ public class CadastroProdutoController {
         Boolean resultado = service.criarProduto(produtoRequisicaoDto);
 
         if(!resultado){
-            return "redirect:/listaprodutos?erro";
+            return "redirect:/lista-produto?erro";
         }
 
-        return "redirect:/listaprodutos";
+        return "redirect:/lista-produto";
     }
 
 

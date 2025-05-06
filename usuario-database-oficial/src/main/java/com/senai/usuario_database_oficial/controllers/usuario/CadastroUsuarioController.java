@@ -1,7 +1,7 @@
 package com.senai.usuario_database_oficial.controllers.usuario;
 
-import com.senai.usuario_database_oficial.dtos.MensagemDto;
-import com.senai.usuario_database_oficial.dtos.RequisicaoDto;
+import com.senai.usuario_database_oficial.dtos.commons.MensagemDto;
+import com.senai.usuario_database_oficial.dtos.usuario.RequisicaoUsuarioDto;
 import com.senai.usuario_database_oficial.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,14 +21,14 @@ public class CadastroUsuarioController {
     @GetMapping
     public String obterCadastro(Model model){
 
-        RequisicaoDto cadastroUsuarioDto = new RequisicaoDto();
+        RequisicaoUsuarioDto cadastroUsuarioDto = new RequisicaoUsuarioDto();
         model.addAttribute("cadastroUsuarioDto",cadastroUsuarioDto);
 
         return "cadastrousuario";
     }
 
     @PostMapping
-    public String realizarCadastro(@ModelAttribute("cadastroUsuarioDto") RequisicaoDto cadastroUsuarioDto){
+    public String realizarCadastro(@ModelAttribute("cadastroUsuarioDto") RequisicaoUsuarioDto cadastroUsuarioDto){
 
         MensagemDto mensagemDto = service.adicionarUsuario(cadastroUsuarioDto);
 

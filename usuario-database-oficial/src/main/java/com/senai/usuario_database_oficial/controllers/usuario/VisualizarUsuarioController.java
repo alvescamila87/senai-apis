@@ -1,6 +1,6 @@
 package com.senai.usuario_database_oficial.controllers.usuario;
 
-import com.senai.usuario_database_oficial.dtos.ConsultaUsuarioDto;
+import com.senai.usuario_database_oficial.dtos.usuario.ConsultaUsuarioDto;
 import com.senai.usuario_database_oficial.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

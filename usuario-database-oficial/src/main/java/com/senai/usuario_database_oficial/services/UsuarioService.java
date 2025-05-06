@@ -1,6 +1,11 @@
 package com.senai.usuario_database_oficial.services;
 
-import com.senai.usuario_database_oficial.dtos.*;
+import com.senai.usuario_database_oficial.dtos.commons.AutenticarUsuarioDto;
+import com.senai.usuario_database_oficial.dtos.commons.MensagemDto;
+import com.senai.usuario_database_oficial.dtos.usuario.ConsultaUsuarioDto;
+import com.senai.usuario_database_oficial.dtos.usuario.RequisicaoUsuarioDto;
+import com.senai.usuario_database_oficial.dtos.usuario.RespostaUsuarioDto;
+import com.senai.usuario_database_oficial.dtos.usuario.UsuarioAtualizarDto;
 import com.senai.usuario_database_oficial.models.UsuarioModel;
 import com.senai.usuario_database_oficial.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +21,7 @@ public class UsuarioService {
     @Autowired
     UsuarioRepository repository;
 
-    public MensagemDto adicionarUsuario(RequisicaoDto requisicao){
+    public MensagemDto adicionarUsuario(RequisicaoUsuarioDto requisicao){
         MensagemDto mensagem = new MensagemDto();
 
         Optional<UsuarioModel> usuarioModel = repository.findByLogin(requisicao.getLogin());
@@ -97,8 +102,8 @@ public class UsuarioService {
         return listaConsultaUsuarioDto;
     }
 
-    public RespostaDto obterUsuarioPorId(Long id){
-        RespostaDto resposta = new RespostaDto();
+    public RespostaUsuarioDto obterUsuarioPorId(Long id){
+        RespostaUsuarioDto resposta = new RespostaUsuarioDto();
         Optional<UsuarioModel> usuarioOptional = repository.findById(id);
 
         if(usuarioOptional.isPresent()){
@@ -136,7 +141,7 @@ public class UsuarioService {
         return mensagem;
     }
 
-    public MensagemDto autenticarUsuario(RequisicaoDto dados){
+    public MensagemDto autenticarUsuario(RequisicaoUsuarioDto dados){
         MensagemDto mensagem = new MensagemDto();
 
         Optional<UsuarioModel> usuarioOptional = repository.findByLogin(dados.getLogin());

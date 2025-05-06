@@ -1,6 +1,6 @@
 package com.senai.usuario_database_oficial.controllers.produto;
 
-import com.senai.usuario_database_oficial.dtos.ProdutoDto;
+import com.senai.usuario_database_oficial.dtos.produto.ProdutoDto;
 import com.senai.usuario_database_oficial.services.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,10 +29,10 @@ public class AtualizarCadastroProdutoController {
         Boolean resultado = service.atualizarProduto(id, produtoDto);
 
         if(!resultado){
-            return "redirect:/listaprodutos?erro";
+            return "redirect:/lista-produto?erro";
         }
 
-        return "redirect:/listaprodutos";
+        return "redirect:/lista-produto";
     }
 
 

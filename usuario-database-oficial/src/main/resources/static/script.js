@@ -50,7 +50,7 @@ document.querySelectorAll('.excluir-produto').forEach(function(button) {
             const produtoId = this.dataset.produtoId;
 
             // Realize a chamada AJAX para excluir o recurso
-            fetch(`/produtodeletar/${produtoId}`, {
+            fetch(`/crud/produto/${produtoId}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json'

@@ -1,9 +1,9 @@
-package com.senai.usuario_database_oficial.dtos;
+package com.senai.usuario_database_oficial.dtos.usuario;
 
 import lombok.Data;
 
 @Data
-public class RespostaDto {
+public class RespostaUsuarioDto {
     private Long id;
     private String nome;
     private String login;
