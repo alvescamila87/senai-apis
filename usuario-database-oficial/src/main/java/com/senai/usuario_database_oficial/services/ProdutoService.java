@@ -50,8 +50,8 @@ public class ProdutoService {
         }
 
         //Quantidade não pode ser zerada nem negativa
-        if(produtoDto.getQuantidadeEstoque() <= 0) {
-            throw new InvalidOperationException("Produto não pode ter 'quantidade de estoque' zerado e/ou negativo.");
+        if(produtoDto.getQuantidadeEstoque() < 0) {
+            throw new InvalidOperationException("Produto não pode ter 'quantidade de estoque' negativo.");
         }
 
         //Nome não pode ser em branco
@@ -107,8 +107,8 @@ public class ProdutoService {
         }
 
         //Quantidade não pode ser zerada nem negativa
-        if(produtoDto.getQuantidadeEstoque() <= 0) {
-            throw new InvalidOperationException("Produto não pode ter 'quantidade de estoque' zerado e/ou negativo.");
+        if(produtoDto.getQuantidadeEstoque() < 0) {
+            throw new InvalidOperationException("Produto não pode ter 'quantidade de estoque' negativo.");
         }
 
         //Nome não pode ser em branco
