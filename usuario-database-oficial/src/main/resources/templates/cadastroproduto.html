@@ -55,7 +55,8 @@
 
                 <div class="mb-3">
                     <label for="produto_nome" class="form-label">Nome</label>
-                    <input th:field="*{nome}" type="text" class="form-control" id="produto_nome" name="nome" placeholder="Nome do produto" required />
+                    <input th:field="*{nome}" type="text" class="form-control" id="produto_nome" name="nome" placeholder="Nome do produto" />
+<!--                    <input th:field="*{nome}" type="text" class="form-control" id="produto_nome" name="nome" placeholder="Nome do produto" required/>-->
                 </div>
 
                 <div class="mb-3">
@@ -78,10 +79,13 @@
                     <a th:href="@{/lista-produto}" class="btn btn-secondary ms-2">Cancelar</a>
                 </div>
 
-                <div th:if="${param.sucesso}" class="alert alert-info" role="alert">
-                    <span class="mensagem">Cadastro de produto realizado com sucesso!</span>
-                </div>
+<!--                <div th:if="${param.sucesso}" class="alert alert-info" role="alert">-->
+<!--                    <span class="mensagem">Cadastro de produto realizado com sucesso!</span>-->
+<!--                </div>-->
 
+                <div th:if="${erro}" class="alert alert-danger" role="alert">
+                    <span class="mensagem" th:text="${erro}">Erro</span>
+                </div>
 
             </form>
         </div>

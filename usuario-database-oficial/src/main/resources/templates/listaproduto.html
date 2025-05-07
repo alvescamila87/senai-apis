@@ -86,7 +86,11 @@
 
             <!-- url passando parametro -> "localhost:8080/login?erro"  -->
             <div th:if="${param.erro}" class="alert alert-danger" role="alert">
-                <span class="mensagem">Erro ao realizar cadastro/atualizacao do produto!</span>
+                <span class="mensagem">Erro ao realizar cadastro do produto!</span>
+            </div>
+
+            <div th:if="${param.sucesso}" class="alert alert-info" role="alert">
+                <span class="mensagem">Cadastro de produto realizado com sucesso!</span>
             </div>
 
         </table>

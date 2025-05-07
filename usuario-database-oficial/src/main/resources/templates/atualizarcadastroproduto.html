@@ -82,6 +82,9 @@
                     <span class="mensagem">Produto atualizado com sucesso!</span>
                 </div>
 
+                <div th:if="${erro}" class="alert alert-danger" role="alert">
+                    <span class="mensagem" th:text="${erro}">Erro</span>
+                </div>
 
             </form>
         </div>

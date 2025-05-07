@@ -3,6 +3,7 @@ package com.senai.usuario_database_oficial.services;
 import com.senai.usuario_database_oficial.dtos.produto.ProdutoDto;
 import com.senai.usuario_database_oficial.dtos.produto.ProdutoListaDto;
 import com.senai.usuario_database_oficial.dtos.produto.ProdutoRequisicaoDto;
+import com.senai.usuario_database_oficial.exceptions.InvalidOperationException;
 import com.senai.usuario_database_oficial.models.ProdutoModel;
 import com.senai.usuario_database_oficial.repositories.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,6 @@ public class ProdutoService {
     @Autowired
     ProdutoRepository repository;
 
-    //--Lista todos os produtos
     public List<ProdutoListaDto> listarProdutos(){
 
         List<ProdutoListaDto> listaProdutoDto = new ArrayList<>();
@@ -36,33 +36,42 @@ public class ProdutoService {
         return listaProdutoDto;
     }
 
-    //--Cria um novo produto
-    public Boolean criarProduto(ProdutoRequisicaoDto produtoDto) {
+    public Boolean cadastrarProduto(ProdutoRequisicaoDto produtoDto) {
 
-//        try {
-            //--Valida se nome de produto ja existe
-            Optional<ProdutoModel> obterProduto = repository.findByNome(produtoDto.getNome());
-            if (obterProduto.isPresent()) {
-                return false;
-            }
+        Boolean resultadoProduto =  validaDuplicidadeNomeProduto(produtoDto.getNome());
 
+        if(resultadoProduto) {
+            throw new InvalidOperationException("Produto já cadastrado com esse nome.");
+        }
+
+        //Preço não pode ser zerado nem negativo
+        if(produtoDto.getPreco() <= 0) {
+            throw new InvalidOperationException("Produto não pode ter 'preço' zerado e/ou negativo.");
+        }
+
+        //Quantidade não pode ser zerada nem negativa
+        if(produtoDto.getQuantidadeEstoque() <= 0) {
+            throw new InvalidOperationException("Produto não pode ter 'quantidade de estoque' zerado e/ou negativo.");
+        }
+
+        //Nome não pode ser em branco
+        if(produtoDto.getNome().isBlank() || produtoDto.getNome().isEmpty()) {
+            throw new InvalidOperationException("Nome é obrigatório");
+        }
+
+        if(!resultadoProduto) {
             ProdutoModel produtoModel = new ProdutoModel();
-
             produtoModel.setNome(produtoDto.getNome());
             produtoModel.setDescricao(produtoDto.getDescricao());
-
-            if(produtoDto.getPreco() <= 0 || produtoDto.getQuantidadeEstoque() <= 0) {
-                return false;
-            }
             produtoModel.setPreco(produtoDto.getPreco());
             produtoModel.setQuantidadeEstoque(produtoDto.getQuantidadeEstoque());
 
             repository.save(produtoModel);
 
             return true;
-//        } catch (IllegalArgumentException ex){
-//            throw new RuntimeException("Erro ao salvar produto: " + ex.getMessage(),ex);
-//        }
+        }
+
+        return false;
     }
 
     public ProdutoDto obterProdutoPorId(Long id){
@@ -83,28 +92,44 @@ public class ProdutoService {
         Optional<ProdutoModel> buscarProdutoPeloNome = repository.findByNome(produtoDto.getNome());
 
         if(buscarProdutoPeloId.isEmpty()){
-            return false;
+            throw new InvalidOperationException("Produto não encontrado.");
+            //return false;
         }
 
-        if(buscarProdutoPeloNome.isPresent()){
-            if(buscarProdutoPeloNome.get().getNome().equals(produtoDto.getNome())){
-                return false;
-            }
+        // atualizar para um nome que já existe (carro -> carro + ID diferente)
+        if(buscarProdutoPeloNome.isPresent() && !buscarProdutoPeloNome.get().getId().equals(produtoDto.getId())) {
+            throw new InvalidOperationException("Produto já cadastrado com esse nome.");
         }
 
-        ProdutoModel model = buscarProdutoPeloId.get();
-        model.setId(produtoDto.getId());
-        model.setNome(produtoDto.getNome());
-        model.setDescricao(produtoDto.getDescricao());
-
-        if(produtoDto.getPreco() <= 0 || produtoDto.getQuantidadeEstoque() <= 0){
-            return false;
+        //Preço não pode ser zerado nem negativo
+        if(produtoDto.getPreco() <= 0) {
+            throw new InvalidOperationException("Produto não pode ter 'preço' zerado e/ou negativo.");
         }
-        model.setPreco(produtoDto.getPreco());
-        model.setQuantidadeEstoque(produtoDto.getQuantidadeEstoque());
 
-        repository.save(model);
-        return true;
+        //Quantidade não pode ser zerada nem negativa
+        if(produtoDto.getQuantidadeEstoque() <= 0) {
+            throw new InvalidOperationException("Produto não pode ter 'quantidade de estoque' zerado e/ou negativo.");
+        }
+
+        //Nome não pode ser em branco
+        if(produtoDto.getNome().isBlank() || produtoDto.getNome().isEmpty()) {
+            throw new InvalidOperationException("Nome é obrigatório");
+        }
+
+        //Atualizar para um nome que NÃO existe OU se for a situação de um nome já existente, mas de mesmo ID
+        if(buscarProdutoPeloId.isPresent()) {
+            ProdutoModel produtoModel = buscarProdutoPeloId.get();
+            produtoModel.setId(produtoDto.getId());
+            produtoModel.setNome(produtoDto.getNome());
+            produtoModel.setDescricao(produtoDto.getDescricao());
+            produtoModel.setPreco(produtoDto.getPreco());
+            produtoModel.setQuantidadeEstoque(produtoDto.getQuantidadeEstoque());
+
+            repository.save(produtoModel);
+            return true;
+        }
+
+        return false;
     }
 
     public Boolean deletarProduto(Long id){
@@ -117,6 +142,17 @@ public class ProdutoService {
 
         repository.delete(produtoModel.get());
         return true;
+    }
+
+    protected Boolean validaDuplicidadeNomeProduto(String nomeProduto) {
+
+        Optional<ProdutoModel> produtoModel = repository.findByNome(nomeProduto);
+
+        if(produtoModel.isPresent()) {
+            return true;
+        }
+
+        return false;
     }
 
 }
