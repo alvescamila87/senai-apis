@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+</head>
+<body>
+        <main>
+        <form action="../../index.html">
+            <h2>Crie sua conta</h2>
+
+            <label for="conta_nome">Nome</label>
+            <input type="text" name="conta_nome" id="conta_nome" placeholder="Informe seu nome" required>
+
+            <label for="conta_data_nascimento">Data Nascimento</label>
+            <input type="date" name="conta_data_nascimento" id="conta_data_nascimento" required>
+
+            <label for="conta_email">Email</label>
+            <input type="email" name="conta_email" id="conta_email" required>
+
+            <label for="conta_senha">Senha</label>
+            <input type="password" name="conta_senha" id="conta_senha" required>
+
+            <label for="conta_confirmar_senha">Confirme a senha</label>
+            <input type="password" name="conta_confirmar_senha" id="conta_confirmar_senha" required>
+
+
+
+            <h3>Serviços fornecidos</h3>
+            <label for="conta_servico_1">Serviço 1</label>
+            <input type="checkbox" name="conta_servico_1" id="conta_servico_1" required>
+
+            <label for="conta_servico_2">Serviço 2</label>
+            <input type="checkbox" name="conta_servico_2" id="conta_servico_2" required>
+
+            <label for="conta_servico_3">Serviço 3</label>
+            <input type="checkbox" name="conta_servico_3" id="conta_servico_3" required>
+
+        
+            <button type="submit">Salvar</button>
+            <a href="login.html">Já possui conta? Clique aqui</a>
+        </form>
+    </main>    
+</body>
+</html>
