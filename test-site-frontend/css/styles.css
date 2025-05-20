@@ -1,0 +1,11 @@
+
+/* NAV BAR */
+a:hover {
+ background-color: blue;    
+ color: white;
+ font-weight: bolder;  
+}
+
+.menu-nav-bar {
+    display: flex;
+}
