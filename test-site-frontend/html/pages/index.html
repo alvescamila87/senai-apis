@@ -3,57 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">    
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="../../css/styles_index_home.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Home</title>
 </head>
 <body>
 
-    <header class="menu-nav-bar"> 
-        <img src="../../img/logo-senai.png" alt="logo-b" width="220px" height="60px">
-        <nav>
-            <ul>
-                <li><a href="../pages/index.html" target="_self">Home</a></li>
-                <li><a href="../pages/item1.html" target="_self">Sobre</a></li>
-                <li><a href="../pages/item2.html" target="_self">Serviços</a></li>
-                <li><a href="../login/cadastro.html" target="_self">Cadastro</a></li>
-                <li><a href="../login/login.html" target="_self">Login</a></li>
+    <header> 
+      <nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <img
+              src="../../img/logo-senai.png"
+              alt="Logo SENAI"
+              width="220"
+              height="60"
+              class="d-inline-block align-text-top"
+            />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Alternar navegação"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="../pages/index.html" target="_self">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../pages/item1.html" target="_self">Sobre</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../pages/item2.html" target="_self">Serviços</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../login/cadastro.html" target="_self">Cadastro</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../login/login.html" target="_self">Login</a>
+              </li>
             </ul>
-        </nav>        
+          </div>
+        </div>
+      </nav>      
     </header>
+ 
 
-    <main>
-        <h1>SENAI</h1>
-        <section>
-            <h2>Introdução da empresa</h2>
-            <img src="../../img/logo-senai.png" alt="" width="500px" height="100px">
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga cumque esse dolores doloribus exercitationem tempora cum tenetur architecto sapiente dolor, pariatur natus nisi ipsa? Quisquam quis eos voluptatem dignissimos culpa?</p>
-        </section>
+  <main>
+    <h1 class="mb-4 text-center text-primary">SENAI</h1>
 
-        <section>
-            <h2>Serviços fornecidos</h2>
-            <div>
-                <h3>Ensino técnico</h3>
-                <p><a href="item2.html">Saiba mais sobre esse serviço</a></p>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione mollitia et nisi odio, nulla nobis ex. Veniam ducimus obcaecati inventore incidunt atque iste, eos alias repudiandae rerum voluptatum magnam harum.</p>
-            </div>
+    <section>
+      <h2 class="mb-3">Introdução da empresa</h2>
+      <img
+        src="../../img/logo-senai.png"
+        alt="Logo SENAI"
+        width="500"
+        height="100"
+        class="d-block mx-auto mb-3"
+      />
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga cumque esse dolores
+        doloribus exercitationem tempora cum tenetur architecto sapiente dolor, pariatur
+        natus nisi ipsa? Quisquam quis eos voluptatem dignissimos culpa?
+      </p>
+    </section>
 
-            
-            <div>
-                <h3>Ensino superior</h3>
-                <p><a href="item2.html">Saiba mais sobre esse serviço</a></p>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione mollitia et nisi odio, nulla nobis ex. Veniam ducimus obcaecati inventore incidunt atque iste, eos alias repudiandae rerum voluptatum magnam harum.</p>
-            </div>
+    <section>
+      <h2 class="mb-4">Serviços fornecidos</h2>
 
-            <div>
-                <h3>Pós-graduação</h3>
-                <p><a href="item2.html">Saiba mais sobre esse serviço</a></p>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione mollitia et nisi odio, nulla nobis ex. Veniam ducimus obcaecati inventore incidunt atque iste, eos alias repudiandae rerum voluptatum magnam harum.</p>
-            </div>
-        </section>
-    </main>
+      <div class="mb-4">
+        <h3>Ensino técnico</h3>
+        <p><a href="../pages/item2.html">Saiba mais sobre esse serviço</a></p>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione mollitia et nisi
+          odio, nulla nobis ex. Veniam ducimus obcaecati inventore incidunt atque iste, eos
+          alias repudiandae rerum voluptatum magnam harum.
+        </p>
+      </div>
+
+      <div class="mb-4">
+        <h3>Ensino superior</h3>
+        <p><a href="../pages/item2.html">Saiba mais sobre esse serviço</a></p>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione mollitia et nisi
+          odio, nulla nobis ex. Veniam ducimus obcaecati inventore incidunt atque iste, eos
+          alias repudiandae rerum voluptatum magnam harum.
+        </p>
+      </div>
+
+      <div class="mb-4">
+        <h3>Pós-graduação</h3>
+        <p><a href="../pages/item2.html">Saiba mais sobre esse serviço</a></p>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione mollitia et nisi
+          odio, nulla nobis ex. Veniam ducimus obcaecati inventore incidunt atque iste, eos
+          alias repudiandae rerum voluptatum magnam harum.
+        </p>
+      </div>
+    </section>
+  </main>
     
-    <footer>
-        <p>Desenvolvido pela equipe: Camila Alves e João Emídio</p>
-    </footer>
+    <footer class="bg-dark text-white text-center py-4">
+        <div class="container">
+          <p class="mb-1">
+            &copy; Designed by: Camila Alves
+            <a href="https://github.com/alvescamila87" class="text-white text-decoration-underline" target="_blank">
+              <a href="https://github.com/alvescamila87" class="text-white" target="_blank" aria-label="GitHub Camila">
+                <i class="bi bi-github fs-4"></i>
+              </a>
+            </a> 
+            e  João Emídio           
+            <a href="https://github.com/emidiojoao" class="text-white text-decoration-underline" target="_blank">
+                <a href="https://github.com/emidiojoao" class="text-white" target="_blank" aria-label="GitHub Camila">
+                  <i class="bi bi-github fs-4"></i>
+                </a>
+              </a> 
+           
+          </p>
+      
+          <p class="mb-1">SENAI</p>
+      
+          <div class="d-flex justify-content-center gap-3 mt-3">
+            <a href="https://www.instagram.com/senai.sc/" class="text-white" target="_blank" aria-label="Instagram">
+              <i class="bi bi-instagram fs-4"></i>
+            </a>
+            <a href="https://www.linkedin.com/school/senai-sc/posts/?feedView=all" class="text-white" target="_blank" aria-label="LinkedIn">
+              <i class="bi bi-linkedin fs-4"></i>
+            </a>
+            <a href="tel:+554733337545" class="text-white" aria-label="Telefone">
+              <i class="bi bi-telephone fs-4"></i> (47) 3333-7545
+            </a>
+            <a href="https://github.com/alvescamila87" class="text-white" target="_blank" aria-label="GitHub Camila">
+              <i class="bi bi-github fs-4"></i>
+            </a>
+          </div>
+        </div>
+      </footer>
 </body>
 </html>
