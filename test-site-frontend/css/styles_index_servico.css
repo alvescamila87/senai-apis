@@ -13,3 +13,7 @@
     padding: 5px 10px;
     text-decoration: none;
   }
+
+  footer a.text-white:hover {
+    color: rgb(146, 148, 255) !important; 
+  }

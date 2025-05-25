@@ -18,3 +18,7 @@
   top: 1rem;
   right: 1rem;
 }
+
+footer a.text-white:hover {
+  color: rgb(146, 148, 255) !important; 
+}
