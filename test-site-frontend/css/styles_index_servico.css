@@ -1,0 +1,15 @@
+.img-servico {
+    width: 500px;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  /* hover no link de serviço */
+
+/* hover no link de serviço */
+
+.link-servico-hover:hover {
+    background-color: #a4c5f7;   
+    padding: 5px 10px;
+    text-decoration: none;
+  }
