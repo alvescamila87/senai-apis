@@ -11,52 +11,65 @@
 </head>
 <body>
 
-    <header> 
-      <nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm">
-        <div class="container">
-          
-          <a class="navbar-brand" href="#">
-            <img
-              src="../../img/logo-senai.png"
-              alt="Logo SENAI"
-              width="220"
-              height="60"
-              class="d-inline-block align-text-top"
-            />
-          </a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Alternar navegação"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="../pages/index.html" target="_self">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../pages/item1.html" target="_self">Sobre</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../pages/item2.html" target="_self">Serviços</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../login/cadastro.html" target="_self">Cadastro</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../login/login.html" target="_self">Login</a>
-              </li>
-            </ul>
-          </div>
+  <header> 
+    <nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img
+            src="../../img/logo-senai.png"
+            alt="Logo SENAI"
+            width="220"
+            height="60"
+            class="d-inline-block align-text-top"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Alternar navegação"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="../pages/index.html" target="_self">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../pages/item1.html" target="_self">Sobre</a>
+            </li>
+            
+            <li class="nav-item dropdown">
+              <a 
+                class="nav-link dropdown-toggle" 
+                href="../pages/item2.html"
+                id="servicosDropdown" 
+                role="button" 
+                data-bs-toggle="dropdown" 
+                aria-expanded="false"
+              >
+                Serviços
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="servicosDropdown">
+                <li><a class="dropdown-item" href="../pages/item2.html" class="link-servico-hover">Ensino técnico</a></li>
+                <li><a class="dropdown-item" href="../pages/item2.html" class="link-servico-hover">Ensino superior</a></li>
+                <li><a class="dropdown-item" href="../pages/item2.html" class="link-servico-hover">Ensino graduação</a></li>
+              </ul>
+            </li>
+  
+            <li class="nav-item">
+              <a class="nav-link" href="../login/login.html" target="_self">Logout</a>
+            </li>
+          </ul>
         </div>
-      </nav>      
-    </header>
+      </div>
+    </nav>      
+  </header>
  
 
   <main>
