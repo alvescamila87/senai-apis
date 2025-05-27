@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Validação de credenciais
     if (email === "admin@admin.com" && senha === "senha") {
-      window.location.href = "../pages/index.html";
+      window.location.href = "/";
     } else {
       alert("Email ou senha inválidos!");
     }
