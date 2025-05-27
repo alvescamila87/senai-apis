@@ -1,7 +1,3 @@
-/** LOGIN */
-
-/** LOGIN */
-
 /** LOGIN */ // Validação visual do formulário
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("loginForm");
