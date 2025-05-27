@@ -78,3 +78,38 @@ body {
   footer a.text-white:hover {
     color: rgb(146, 148, 255) !important; 
   }
+
+  /* Efeito hover nos links da navbar */
+.navbar .nav-link {
+  color: #333;
+  transition: color 0.1s ease, background-color 0.1s ease;
+}
+
+.navbar .nav-link:hover {
+  color: #fff;
+  background-color: #0d6efd;   
+  padding: 5px 10px;
+}
+
+a:not(.nav-link):not(.text-white) {
+  color: #0d6efd;
+  text-decoration: none;
+  transition: color 0.1s ease;
+}
+
+a:not(.nav-link):not(.text-white):hover {
+  color: #0a58ca;
+  text-decoration: underline;
+}
+
+footer a.text-white:hover {
+  color: rgb(146, 148, 255) !important; 
+}
+
+/* hover no link de serviço */
+
+.link-home-hover:hover {
+  background-color: #a4c5f7;   
+  padding: 5px 10px;
+  text-decoration: none;
+}
